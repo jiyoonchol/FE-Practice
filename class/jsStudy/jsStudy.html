@@ -1,0 +1,3141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+    <script src="hellow.js" defer></script>
+    <script>var name = "안녕하세요";
+            var book = "책", point = 123;   // 콤마로 구분하여 다수 작성
+
+            var book2 = "책",     // 줄을 바꾸어 작성
+                point = 123; 
+
+            var book3 = "책"     // 앞에 콤마 작성
+                , point = 123;  // 시멘틱이란 의미를 부여하여 변수 이름 작명하는 것을 말한다.
+
+            var point = 123, point = 456;   // 나중에 할당한 값으로 바뀜
+
+            var point = amount = 123;       // 같은 값 할당
+                                                                            // vscode 여러줄 주석 단축키 : alt + shift + a
+
+                                            // 자바스크립트 엔진 vs 자바스크립트 버전?
+    
+    
+
+            console.log("안녕하세요")        // System.out.println 임. 소괄호 안의 작성한 값을 파라미터 값이라고 한다.
+
+
+            var point = 456;                // console.log 출력 방법 1
+            console.log(point);
+
+
+            var point2 = 123;              // console.log 출력 방법 2
+            console.log(point);
+            log(point);
+
+
+            // 정수 : 소수가 없는 숫자. ex) 123, -123    실수 : 소수를 가진 숫자. ex) 1.23, 1.0   JS는 정수, 실수를 구분하지 않음. 1, 1., 1.0 모두 1.0으로 간주한다. 단, 표시는 1로 표시
+            // 이것을 바로 "부동 소수점 처리" 라고 한다.  ex) 123을 123.0 으로 처리
+            // ES6 에는 정수, 실수 구분이 추가되었다고 한다.
+            
+
+
+
+            // JS는 변수의 값을 변경할 수 있으므로 상수 변수는 선언적 의미이다.
+            // 코딩 관례로 영문 "대문자"를 사용한다. (값을 바꿀순 있지만, 값을 바꾸지 말라는 시멘틱 선언이다.), JS가 제공하는 상숫값은 변경 불가 (MAX_VALUE, MIN_VALUE 등)
+
+            var ONE = 123;     // 대문자 ONE. 값을 바꾸지 말라는 시멘틱 선언
+            ONE = 456;
+            log(ONE);
+            log(Number.MAX_VALUE);
+
+
+
+
+            // 데이터 타입(자료형). 사전적 의미는 자료 
+            // 숫자 타입 : var value = 123;
+            // 문자 타입 : var value = "sports";
+            // typeof 연산자 : 데이터(값) 타입 변환.
+
+            var point = 123;       // typeof 연산자 : 데이터(값) 타입 변환.   실행 결과 : number
+            log(typeof point);
+
+            var book4 = "책"       // typeof 연산자 : 데이터(값) 타입 변환.   실행 결과 : string
+            log(typeof book);
+            
+
+
+            // 언어 타입 : JS 프로그램에서 사용할 수 있는 타입,   ex) Undefined , Null, Boolean, String, Number, Object
+            // 스펙 타입 : 언어 알고리즘을 위한 타입으로 JS 프로그램에서 사용 불가,   ex) Reference, List, Completion, Property Descriptor, Data Block, Lexical Environment, Lexical Record 등
+
+
+
+            //  ** Number 타입  ,   부호(+, -)를 가진 값
+
+            var point = 123;  
+            log(typeof point);            // 실행 결과 : number
+            point = -1.23;
+            log(typeof point);            // 실행 결과 : number  
+
+            // Number 타입의 특수한 3개 값 ,   ex ) Nan : Not-a-Number , Infinity : 양수 무한대 ,  -Infinity  : 음수 무한대
+
+            var point = 1 * "A";
+            log(point);                // 실행 결과 : NAN ,  NaN는 값이 숫자가 아닌 것을 나타내는 값이다.
+
+            // String 타입 
+            // 문자 타입 : 값을 "" 또는 '' 사이에 작성 
+            // 따옴표에 숫자를 작성하면 문자 타입이 된다.
+
+            var point3 = "책, '123' ";
+            log(point);                //  실행 결과 : 책, '123'
+
+            point3 = '책, "123" ';    
+            log(point);               // 실행 결과 : 책, "123"
+
+            var value = "123";
+            log(typeof value);        // 실행 결과 : string
+
+
+            // Undefined : (대문자) 타입 ,  값 : undefined(소문자)
+            /* 변수의 디폴트값
+            - var point;
+            - 변수를 선언만 한 것으로 undefined가 초기값으로 설정 
+            - 변수에 값을 할당하지 않은 것을 나타내는 시맨틱
+            - 변수에 undefined 할당 가능*/
+            
+            var point4;            
+            log(point);          // 실행 결과 : undefined    
+
+            var point5 = undefined;
+            log(point5);         // 실행 결과 : undefined 
+
+
+
+            // Null 타입
+            
+            var book;
+            log(book);          // 실행 결과 : undefined
+
+            var point6 = null;  
+            log(point);         // 실행 결과 : null
+
+
+            // boolean 타입
+
+            log(true);      // 실행 결과 : true 
+            log(false);     // 실행 결과 : false
+            
+
+            // Object 타입    - {name : value} 형태 , name과 value 하나를 지칭 (프로퍼티) , Object는 프로퍼티 집합
+
+            var book5 = {title : "책", point : 123};                // 콜론을 기준으로 왼쪽을 프로퍼티 key 또는 name이라고 부르며 오른쪽을 프로퍼티 값이라고 부른다, 중괄호 안에 key : value 형태로 작성한다.
+            log(book5);                                            // 실행 결과 : {title : 책 , point : 123}    
+            
+            
+            // 타입 정리. 기본 데이터 타입을 Primitive 타입이라고 한다. 시맨틱적으로 데이터 타입을 짐작할 수 있다.
+
+            log(typeof 123);                        // 실행 결과 : number
+            log(typeof "문자열");                   //  실행 결과 : string
+            log(typeof true);                       // 실행 결과 : boolean
+            log(typeof undefined);                  // 실행 결과 : undefined
+
+
+
+            // 무슨말?
+            log(typeof null);                       // 실행 결과 : object     , null과 {book : "책"}의 데이터 타입이 object 이다. null의 데이터 타입이 null이 아니다.
+            log(typeof {book : "책"});              // 실행 결과 : object
+
+
+            // 연산자
+
+            var value = 1 + 2 + 4;
+            log(value);             // 실행 결과 : 7
+
+
+
+            var two = "2";          // 평가 결과 연결 : 한 쪽이라도 숫자가 아니면 더하지 않고 연결 , 왼쪽에서 오른쪽으로 연산
+            var value = 1 + two;
+            log(value);             // 실행 결과 : 12
+            log(typeof value);      // 실행 결과 : string
+
+
+            var value = 1 + 5 + "ABC";      // 우선 1과 5를 더하면 6이 되고, 이어서 6과 "ABC"를 연결한다.
+            log(value);                 // 실행 결과 : 6ABC 
+
+
+            // 숫자로 변환 , 연산하기 전에 우선 숫자로 변환 -> 변환된 값으로 연산한다.
+
+            var value;              // value 값은 undefined , 10과 undefined를 더하면 NaN(Not-a-Number)도 값이다.
+            log(10 + value);     // 실행 결과 : NaN
+
+
+            log(10 + null);         // 실행 결과 : 10  . null은 0으로 변환
+            log(10 + true);         // 실행 결과 : 11  . true는 1로 변환
+            log(10 + false);        // 실행 결과 : 10  . false는 0으로 변환
+
+
+            log(10 + "123");        // 실행 결과 : 10123  . 더하기는 값이 숫자라도 타입이 String이면 문자열로 연결하지만. - , *, /는 숫자로 변환하여 연산한다.
+            log(123 - "23");        // 실행 결과 : 100    .  typeof 연산자로 Number 타입 여부 체크
+
+
+            // 산술 연산자 (-, *, / , %)
+
+
+            // - 연산자
+            log("135" - 2);        // 실행 결과 : 133    ,   "135"가 String 타입이지만 값이 숫자이므로, 값을 Number 타입으로 변환하여 계산
+
+            // * 연산자                                 ,    문자 타입이라도 값이 숫자이면 숫자 타입으로 변환한다.
+            log(10 * "20");        // 실행 결과 : 200
+            log(10 * true);        // 실행 결과 : 10        , true를 1로 변환
+            log(10 * false);       // 실행 결과 : 0         , false를 0으로 변환
+            log(10 * null);        // 실행 결과 : 0         , null을 0으로 변환
+            log(10 * "A");         // 실행 결과 : NaN       , A는 곱할수 없기 때문에 NaN
+
+
+            log(2.3 * 3);                // 실행 결과 : 6.899999995    ,  6.9로 출력되지 않는다. 정상이며 IEEE 754 유동 소수점 처리 때문이다.
+            log(2.3 * 10 * 3 / 10);      // 실행 결과 : 6.9            , 대응 방법 : 실수를 정수로 변환하여 값을 구하고, 다시 정수를 실수로 변환한다.
+            
+
+            // / 연산자
+            log(10 / "20")
+            log(10 / true)
+            log(10 / false)
+            log(10 / null)
+            log(10 / "A")
+
+            // % 연산자
+            log(5 % 2.5);               // 실행 결과 : 0                    , 5를 2.5로 나누면 나머지가 0
+            log(5 % 2.3);               // 실행 결과 : 0.40000000000036     , 소수 끝에 36이 있는 것은 IEEE 754의 유동 소수점 처리 때문
+            log((5 * 10 - (2 * 2.3 * 10)) / 10);        // 실행 결과 : 0.4  , 실수를 정수로 변환하여 연산하고 다시 정수를 실수로 변환
+
+            // 단항 + 연산자
+            var value = "7";            
+            log(typeof value);             // 실행 결과 : string
+            log(typeof + value);          // 실행 결과 : number    
+            log(typeof Number(value));   // 실행 결과 : number   , String 타입을 Number 타입으로 변환 . Number() 함수가 가독성이 더 좋다.
+
+
+            // 단항 - 연산자
+            var value = 7;
+            log(-value);            // 실행 결과 : -7       , 7을 -7로 바꾼다.
+            log(8 + -value);        // 실행 결과 : 1        , 8 + (-7)은 1
+            log(value);             // 실행 결과 : 7        , value 변수값의 부호는 바뀌지 않는다.
+
+
+            // 후치, 전치, 논리 NOT 연산자
+
+            // 후치 ++ 연산자 . 형태 : value++    , 값을 자동으로 1 증가시킴 ,    문장을 수행한 후에 1 증가   ,  즉 , 세미콜론(;) 다음에서 증가
+            var one = 1;                    
+            var value = one++ +3;       // one++를 하면 1이 2가 되지만 문장 안이므로 1이 증가하지 않는다.    
+            log(value);                 // 실행 결과 : 4      , 1 + 3을 하게 되어 4가 된다.
+            log(one);                   // 실행 결과 : 2
+
+            // 전치 ++연산자   .  형태 : ++value  , 값을 자동으로 1 증가시킴  , 문장 안에서 1 증가  , 표현식을 평가하기 전에 1증가  , 표현식에서 증가된 값을 사용
+            var one2 = 1;           
+            var value = ++one + 3;  // 문장이 끝나기 전이지만 먼저 1을 증가시키고 3을 더한다.  
+            log(value);             // 실행 결과 : 5    .  2 + 3을 하게 되므로 5가 출력된다.
+
+            // 후치 -- 연산자  .  형태 : value --
+            var two2 = 2;       
+            var value = two-- + 3;      // two--를 하면 2가 1이 되지만 문장 안이므로 1이 감소되지 않는다.
+            log(value);                 // 실행 결과  : 5   // 2 + 3을 하게 되어 5가 된다.
+            log(two);                   // 실행 결과  : 1
+
+
+            // 전치 --연산자      . 형태 : --value
+            var two3 = 2;
+            var value = --two + 3;      // 문장이 끝나기 전이지만 먼저 1을 감소시키고 3을 더한다.
+            log(value);         // 실행 결과 : 4
+
+            // ! 연산자  . 논리 NOT 연산자
+            var value = true;       
+            log(!value);        // 실행 결과 : false   , true를 바꾸어 false로 출력
+            log(!!"A")          // 실행 결과 : true    , A는 true, !A는 false, !!A는 true
+
+
+            // 유니코드 , UTF   , 세계의 모든 문자를 통합하여 코드화 . 언어 , 이모지 등
+            log("\u0031");      // 실행 결과 : 1
+            log("\u0041");      // 실행 결과 : A
+            log("\u1100");      // 실행 결과 : ㄱ
+            log("\uac01");      // 실행 결과 : 각
+
+            log("\\u0031");     // 실행 결과 : \u0031
+            log("\\u0041");     // 실행 결과 : \u0041
+
+
+            // UTF  , 유니코드의 코드 포인트를 매핑하는 방법   .  <meta charset= "utf-8" , UTF-8은 8비트로 코드 매핑, 8비트 인코딩이라고 부름.
+
+ 
+            // 관계 연산자     < , > , <= , >= 연산자  , instanceof 연산자 , in 연산자
+            log((1 + 2) >1);        // 실행 결과 : true     . 먼저 표현실을 평가하여 값을 구한다. 3이 1보다 크므로 true를 반환한다. 수학 값으로 비교한다고 말한다.
+
+            log(1>"A");             // 실행 결과 : false  , 숫자와 문자열을 비교하면 false
+
+            log(("\u0033" > "\u0032"));    // 실행 결과 : true      . 코드 포인트 : \uoo33 : 3 , \u0032 : 2  
+            log("A" > "1");                // 실행 결과 : true      . \u0033 : A , \u0031 : 1    , 코드 포인트는 유니코드를 등록할 때 부여
+            log("가" > "다");              // 실행 결과 : false     . 유니코드 등록 순서로 비교 (유니코드 사전 순서로 비교한다고도 말함). "가"와 "다"도 유니코드 사전 순서로 비교.
+
+            log("A07" > "A21");            // 실행 결과 : false     .  왼쪽에서 오른쪽으로 문자 하나씩 비교, A와 A가 같으므로 다음을 비교, 0과 2를 비교하게 되며 false 반환 . 결정이 되면 다음 것은 비교하지 않는다.
+
+
+
+            // 동등 , 부등, 일치 , 불일치 연산
+
+            // == 연산자
+            log(1 == "1");      // 실행 결과 : true   , 값 타입이 다르면 즉, "문자 : 숫자" , "숫자 : 문자"일 때 문자 타입을 숫자 타입으로 변환하여 비교. 따라서 모두 1이므로 true 반환
+
+            var value;                      
+            log(value == undefined);        // 실행 결과 : true    ,  양쪽이 모두 undefined이므로 true
+
+            var value;                              
+            log(value == null);             // 실행 결과 : true   , undefined와 null을 비교하면 true , undefined와 null은 값이다. 값이 다른데도 true가 되므로 주의
+
+            // != 연산자   (부등 연산자)
+
+            // === 연산자  (일치 연산자)  , 왼쪽과 오른쪽의 값과 타입이 모두 같으면 true , 값 또는 타입이 다르면 false
+            log(1 === "1");                 // 실행 결과 : false   . 값은 같지만 타입이 다르므로 false
+
+            var value;                      // var로 변수를 선언만 하면 변숫값은 undefined
+            log(value == null);             // 실행 결과 : true  .  undefined와 null은 값이다.  동등(==) 연산자로 비교하면 true
+            log(value === null);            // 실행 결과 : false .  일치 연산자(===)로 비교하면 타입이 다르므로 false  
+
+
+            // !== 불일치 연산자
+
+
+            // 콤마 , 그룹핑 (), 논리 연산자 OR 연산자 ||
+            var value, zero = 0, two = 2;        // || 표현식의 평가 결과가 하나라도 true이면 true 아니면 false , 왼쪽 결과가 true이면 오른쪽은 비교하지 않음.  
+            log(value || zero || two);     // 실행 결과 : 2 . value 변수값이 undefined이므로 false , zero 변수값이 0이므로 false , two 변수값이 2이므로 true가 되며 two 변수값을 반환 . true가 아니라 true가 되는 변수값 반환 2가 true이므로 전체 비교는 true 
+            
+
+            var value, zero = 0;
+            log(zero || value);         // 실행 결과 : undefined  . 마지막까지 비교하였는데 모두가 false이면 false가 아니라 마지막 변수값을 반환한다.
+
+            var one = 1;
+            log(one === 1 || two === 2);    // 실행 결과 : true . 왼쪽의 (one === 1) 결과가 true이므로 true 반환 . 왼쪽 비교 결과가 true이면 오른쪽은 비교하지 않음. 오른쪽을 비교하면 two 변수가 없으므로 에러 발생.
+
+
+            // && 연산자 (AND 연산자)
+            var one = 1, two = 2;       // 왼쪽 결과가 false이면 오른쪽은 비교하지 않음.
+            log(one && two);    // 실행 결과 : 2  . one 변수값이 1이므로 true. true이므로 오른쪽을 비교 , two 변수값이 2이므로 true . 모두가 true이며 마지막의 2를 반환
+
+
+            var one = 1 , zero = 0;     
+            log(one && zero && nine);   // 실행 결과 : 0 . one 변수값이 1이므로 true . true 이므로 오른쪽 비교 . zero 변수값이 0이므로 false . false이므로 오른쪽을 비교하지 않고 zero 변수값인 0 반환 . nine을 비교하면 nine 변수가 없으므로 에러 발생.
+
+
+            // 조건 연산자, 연산자 우선순위
+            // 기호 : exp ? exp-1 : exp-2  (3항 연산자라고도 함)
+
+            log( 1 === 1 ? "같음" : "다름");         // 실행 결과 : 같음     . 1과 1은 값과 타입이 같으므로 true ? 다음의 표현식을 실행
+            log(1 === "1" ? "같음" : "다름");       // 실행 결과 : 다름     . 1과 "1"은 값은 같지만 타입이 다르므로 false : 다음의 표현식을 실행
+
+
+
+
+            // 문장 (Statement)
+            var one = 1     // 줄을 분리해야 화이트 스페이스(LF/CR) 앞에 세미콜론을 자동 삽입한다. 한 줄에 작성하면 삽입하지 않는다.
+            var two = 2;
+            log(one);     // 실행 결과 : 1  . var one = 1 끝에 ;을 작성하지 않았다. 두 줄의 코드를 연결하면 var one = 1 var two = 2; 형태가 되며 var을 2번 작성했으므로 에러.  에러가 나지 않은 것은 엔진이 1의 끝에 세미콜론을 삽입하여 문장을 완성시키기 때문이다. 
+
+
+            // 블록
+            var one = 1 , two = 1;
+            if (one === two) {
+                var result = one + two;
+                log(result);
+            }                                   // 실행 결과 : 2
+
+
+            // if , debugger
+            var a = 1, b = 1;
+            if (a === b) log("블록을 사용하지 않음");     //실행 결과 : 블록을 사용하지 않음  .  한 줄에 이어서 작성
+
+            if (a === b)                                  // 줄을 바꿔 작성 . 세미콜론(;)까지 if 조건 실행      
+              log("1번의 줄")      // 실행 결과 : 1번 줄
+              log("2번의 줄");     // 실행 결과 : 2번 줄   
+
+
+            var a = 1, b = 1;
+            if (a === b) {          // 블록에 작성한 모든 문장 실행
+                log("블록 사용")    // 블록 사용 권장 : 확장성과 일관성을 위해서    
+            };                     // 실행 결과 : 블록 사용
+
+
+            var a = 1 , b = 2;
+            if (a === b)
+              log("블록 사용하지 않음, true");      // 블록을 사용하지 않는 형태
+            else
+              log("블록 사용하지 않음, false");     // 실행 결과 : 블록 사용하지 않음 , else
+
+            
+            var a = 1 , b = 2;
+            if (a === b) {
+                log("블록 사용, true");             // 블록을 사용한 형태
+            } else {
+                log("블록 사용, else");             // 실행 결과 : 블록 사용 , else
+            }
+
+
+            // debugger  (ES5부터 지원)
+            var sports = "스포츠";
+            debugger;               // debugger가 있는 위치에서 실행이 멈춘다.
+            log(sports);            // 실행 결과 : 스포츠
+
+
+
+            // while , do while
+            // 표현식의 평가 결과가 false가 될 때까지 문장을 반복 실행
+            var k = 1;          // while의 표현식 평가 결과가 3보다 작으면 true이므로 while 블록의 문장 리스트를 수행한다.
+            while (k < 3) {     // k가 3이 되면 평가 결과가 false가 되므로 블록의 문장 리스트를 수행하지 않는다.
+                log(k);         // 표현식 평가 결과가 false가 되도록 조치를 취하지 않으면 무한 반복
+                k++;            // 실행 결과 : 1  
+            };                  // 실행 결과 : 2
+
+            // do ~ while
+            var k = 0;
+            do {                    // 먼저 do 문을 실행한다. [실행 결과] do : 0이 출력된다.
+                log("do:" , k);     
+                k++;
+            } while (k < 3) {       // while 문의 표현식을 평가한다. 평가 결과가 true이면 do 문의 블록을 다시 실행 k가 1이며, 3보다 작으므로 do 문을 실행한다.
+                log("while:", k);   // 평가 결과가 false이면 while 문의 블록 실행 . k가 3이면 while 문의 블록을 실행한다.
+            };                      // 실행 결과 : do : 0 , do : 1 , do : 2 , while : 3
+
+            // for ()
+            for (var k = 0; k<2; k++){      // var k = 0;  . 초기값 할당, 처음 한 번만 할당한다. k<2; 비교 표현식을 평가한다. 평가 결과가 true이면 for() 블록의 코드를 실행한다.
+                log(k);                     // 처음 반복은 k가 0이므로 true가 되어 블록의 console.log(k) 실행 . k++ 는 k 변수값을 1 증가시킨다. 다시 2번부터 5번까지 실행. k가 2가 되면 2번에서 false가 되며 for() 문을 종료.
+            }                               // 실행 결과 : 0   ,  1
+
+
+
+            for (var k =0; k<3;) {          // 증감 표현식에 k++ 작성하지 않았으며, 블록에서 k 변수값을 증가시킨 형태
+                log(k);                     // 실행 결과 0 , 1 , 2
+                k++;
+            };
+
+            
+            
+            var k = 0;                      // for() 문에 초기값을 작성하지 않더라도 ;은 작성해야 한다.
+            for (; k <3;) {                 // 대신 for()문 앞에서 k 변수에 초기값을 할당했다.
+                log(k);                     // 증감 표현식을 작성하지 않고 블록에서 k 변수값을 증가시켰다.
+                k++;
+            };                              // 실행 결과 : 0 , 1 , 2  
+
+
+
+            for (var k = 0; ;) {            // ;은 작성해야 한다.
+                log(k);
+                k++;
+                if (k > 2) {
+                    // for() 문 종료
+                    break;
+                };                          // 실행 결과 : 0 , 1 , 2
+            };
+
+
+
+            var k = 0;
+            for (;;) {                      // ;은 작성해야 한다
+                log(k);
+                if (k === 2) {
+                    // for() 문 종료
+                    break;
+                };
+                k++;
+            };                              // 실행 결과 : 0 , 1, 2
+
+
+
+            for (var k = 0; k<51; k++) {
+                if (k / 2 == 0) {
+                    var v = k;
+                    console.log(v);
+                } 
+                else (k / 2 !== 0); {
+                    var s = k;
+                    console.log(s);
+                }
+                console.log(k);
+                console.log(v);
+                console.log(s);
+            }
+
+
+            // break , continue
+            var k = 0, m = 0;
+            while (k < 3) {         // m이 2이면 while() 문을 종료 . console.log(m)을 실행하지 않는다.
+                m++
+                if (m ===2) {
+                    break;
+                };
+                log(m);            // 실행 결과 : 1 
+            };
+
+            
+            
+            // break
+            for ( var k = 0; k<3; k++) {
+                if (k === 1) {
+                    break           // break 끝에 세미콜론을 자동으로 첨부
+                    log("k === 1");
+                };
+                log(k);             // console.log(" k === 1")을 실행하지 않는다.
+            };                      // 실행 결과 : 0
+
+
+
+            // continue   .  반복문의 처음으로 분기
+            for (var k = 0; k < 5; k++) {       // k가 2 또는 3이면 continue 문을 실행
+                if (k === 2 || k ===3) {        // 아래의 console.log(k)를 실행하지 않는다.
+                    continue;
+                };
+                log(k);                     // 실행 결과 : 0 , 1 , 4
+            }
+
+
+
+
+            // switch
+            var exp = 1;            // switch(exp)에서 exp를 평가하여 값을 구하고 구한 값에 일치하는 case 문을 수행
+            switch(exp) {           // exp 값이 1이므로 case 1: 을 수행
+                case 1:         
+                    log(100);       // 주의 . case 1 아래의 모든 문장을 수행하므로 200이 출력된다.
+                case 2:             // 이를 방지하려면 break를 작성해야 한다.
+                    log(200);
+            };                      // 실행 결과 : 100  ,  200
+
+
+
+
+            // break 사용
+            var exp = 1;
+            switch(exp) {           // switch(exp)의 값이 1이므로 case 1:을 수행
+                case 1:
+                    log(100);
+                    break;          // break 문을 만나 switch 문을 빠져 나간다.
+                case 2:
+                    log(200);       // 따라서 case:2를 수행하지 않게 된다.
+            };                      // 실행 결과 : 100
+
+
+
+            // default 실행
+            var exp = 7, value;
+            switch(exp) {           // switch(exp) 값이 7이므로 일치하는 case가 없으며
+                case 1:
+                    value = 100;
+                default:            // 이때 default: 코드를 실행한다.
+                    value = 700;
+                case 2:             // case 2: 도 실행한다.
+                    value = 200;
+            };
+            log(value);             // 실행 결과 : 200
+
+
+            
+            // OR (||) 형태
+            var exp = 3;
+            switch(exp) {       // exp 값이 2 또는 3이면 case 수행
+                case 2:
+                case 3:
+                    log(100);   // 실행 결과 : 100
+            };
+
+
+
+            // try-catch , throw
+            var value;
+            try {                   // try 블록에서 ball 을 value에 할당할 때 ball 변수가 없으므로 에러 발생
+                value = ball;       // 에러가 발생하면 catch(error) 블록 실행 파라미터 error에 JS의 Error 오브젝트 설정
+            } catch(error) {        // error는 식별자로 임의의 이름 사용 가능
+                log("catch 실행")     // 에러가 발생할 가능성이 있으면 반드시 try-catch를 사용해야 한다.  
+            };                      // 실행 결과 : catch 실행
+
+            
+            
+            // finally
+            var sports;
+            try {               // try에서 에러가 발생하면 catch() 블록을 실행한 후, finally 블록 실행
+                sports = ball;
+            } catch(error) {        
+                log("catch 실행");
+            } finally {                 // try에서 에러가 발생하지 않더라도 finally 블록 실행
+                log("finally 실행")
+            };                          // 실행 결과 : catch 실행 , finally 실행
+            
+
+            // throw
+
+            // 예외를 발생시킴
+            try {
+                throw "예외 발생시킴";          // "throw" 표현식에 문자열을 작성한 형태
+                var sports = "스포츠";          // throw를 만나면 에러가 발생하며 catch 블록이 실행된다. throw 아래의 코드는 실행되지 않는다.
+            } catch(error) {                    // catch(error)의 error에 throw 표현식의 문자열이 설정된다.
+                log(error);
+                log(sports);
+            };                                  // 실행 결과 : 예외 발생시킴 , undefined
+
+            
+            // {name: 메시지} 형태
+            try {
+                throw {                         // throw 표현식에 오브젝트를 작성한 형태
+                    msg : "예외 발생시킴",              // 이름 : value . 프로퍼티 형태
+                    hi : "임의의 이름 사용"             // 키 : value  .  프로퍼티 형태
+                };
+            } catch(error) {                    // catch(error)의 error에 Error 오브젝트가 설정된다.
+                log(error.msg);             
+                log(error.hi);
+            };                                  // 실행 결과 : 예외 발생시킴  ,  임의의 이름 사용
+
+
+
+            // Error 오브젝트 사용
+            try {
+                throw new Error("예외 발생시킴");   // throw 표현식에 Error 오브젝트 작성 . Error()의 파라미터에 메시지 작성 . 오브젝트의 message에 메시지가 설정된다.
+            } catch(error) {                        // catch(error)의 error에 Error 오브젝트가 설정된다.
+                log(error.message);                 // error.message로 작성한 메시지 사용
+            };                                      // 실행 결과 : 예외 발생시킴
+            
+
+
+
+            // strict 모드
+
+            // use strict 작성하지 않음
+            book = "책";        // var을 작성하지 않은 형태   ,  var을 사용하여 변수를 선언해야 하지만 변수가 선언되고 "책"이 할당된다.
+            log(book);          // 실행 결과 : 책
+
+
+            // use strict 작성 . ES5 부터 지원
+            "use strict";                   // var 키워드를 작성하지 않은 형태
+            try {                           
+                book = "변수 선언하지 않음";    // book 변수에 "변수 선언하지 않음"을 할당하면 에러 발생
+                log(book);                      
+            } catch(error) {                    
+                log(error.message);             // error.message에 에러 메시지로 설정된다. 코딩 실수를 예방할 수 있으므로 use strict 선언은 필수적이다.
+            }                                   // 실행 결과 : book is not defined
+
+
+
+            // 함수 (function)
+            
+
+            // 함수 형태
+            function book() {
+                var title = "JS 책";
+            };
+
+            var point = function(one, two) {
+                var total = one + two;
+                var bonus = total + 100;
+            };
+
+
+            // 함수 이름 관례 
+            function setBookTitle() {
+                var title = "JS 책";
+            };
+
+            var calculatePoint = function(one, two) {    // 동사로 시작 , 두 번째 단어부터 명사 사용   . 동사 + 명사
+                var total = one + two;
+                var bonus = total + 100;
+            }
+
+
+
+            // 함수 호출
+            function setValue(one, two) {       // 호출 받는 함수  , setValue(10 ,20) 형태로 함수 호출 . 파라미터 값으로 10과 20을 넘겨 준다.
+                var total = one + two;          // 호출된 함수에서 10을 one에 , 20을 two에 설정한다. (왼쪽에서 오른쪽으로 설정)
+            };                                  // setValue() 함수의 함수 코드 실행
+
+            setValue(10, 20);       // 호출 하는 함수
+                                    // 실행 결과 : 30
+
+
+            // return
+            function getPoint() {       // getPoint() 함수 호출
+                return 10 * 30;         // return의 오른쪽 표현식(10 * 30)을 평가
+            }                           // 평가 결과 300을 변환
+            var result = getPoint();     // 300을 갖고 getPoint()로 돌아간다.   
+            log(result);                // 300을 result 변수에 할당한다.
+                                        // 실행 결과 : 300
+
+
+
+            // undefined 반환
+            function getPoint() {       // return을 작성하지 않으면
+                                        // 값을 반환하지 않는 것이 아니라 undefined 값을 반환.      JS에서 undefined는 값이다.
+            };
+            var result = getPoint();
+            log(typeof result);         // 실행 결과 : undefined
+
+
+
+            // 줄을 분리하여 표현식 작성
+            function getPoint() {
+                return                  // return 끝에 세미콜론을 자동으로 첨부한다.
+                10 * 30;                // return 문에서 return 하므로 10 * 30을 수행하지 않게 된다.
+            };
+            var result = getPoint();
+            log(result);                // 실행 결과 : undefined
+
+
+
+            
+            // 주석 작성 목적
+
+
+            // 오브젝트, 프로퍼티
+
+            // name과 key
+            var book = {            // 프로퍼티 name(key)에서 key는 유일하지만 name은 중복될 수 있다는 뉘앙스가 풍깁니다.
+                title : "책",       // ES3에서는 같은 이름이 등록되기도 한다.   ex) title이 2개..
+                point : 123         // ES5에서는 key와 name을 구분하지 않아도 되지만 ES6에서는 구분해야 한다.
+            };
+
+
+            // 따옴표 생략
+            var book = {            // {title : "책"} 에서 "title"처럼 따옴표를 사용해야 한다. 즉 , title은 String 타입이다.
+                title : "책"        // 그런데, 따옴표를 작성하지 않는 것은 따옴표를 작성하지 않아도 문자열로 간주하기 때문이다.
+            };
+
+
+            // JS 타입 사용
+            var book = {
+                title : "책",
+                point : {
+                    ten : 10,
+                    bonus : 20,
+                    promotion : function() {}
+                }
+            };
+
+
+            // 점과 프로퍼티 이름 사용
+            var book = {};              // book.title 처럼 점(.)에 이이서 프로퍼티 이름을 작성한다.
+            book.title = "JS책";        // title을 "title" 처럼 따옴표를 사용하지 않는다.
+            log(book);                  // = 오른쪽에 프로퍼티 값을 작성한다.
+                                        // 실행 결과 : {title : JS책 }
+
+
+
+            // 대괄호 사용
+            var book = {};              // book["title"]처럼 대괄호[] 안에 문자열로 프로퍼티 이름을 작성한다.
+            book["title"] = "JS책";     // = 오른쪽에 프로퍼티 값을 작성한다.
+            log(book);                  // 실행 결과 : {title : JS책}
+
+
+
+            // 변수 이름 사용
+            var book = {title : "JS책"};        // 프로퍼티 이름을 변수에 작성하고 이를 사용
+            var varName = "title";              // title 프로퍼티 이름이 있으므로 프로퍼티 값이 변경된다.
+            book[varName] = "HTML책";
+            log(book);                          // 실행 결과 : {title : HTML책}
+
+            
+
+
+
+            // Object 프로퍼티 열거
+
+
+            // 프로퍼티 값 추출
+            var obj = {book : "책"};        // obj.book             obj 오브젝트에 프로퍼티 이름으로 book이 있으므로 프로퍼티 값인 "책"이 반환된다.
+            log(obj.book);                  // obj["sports"]        obj 오브젝트에 프로퍼티 이름으로 sports가 없으므로 undefined가 반환된다.    실행 결과  :  책 
+            log(obj["sports"]);             // 실행 결과  :    undefined
+
+
+
+            // for ~ in
+
+            // 프로퍼티 열거                    for (변수 in 오브젝트) 문장;       ,    for (표현식 in 오브젝트) 문장;
+            var sports = {                      // 프로퍼티 이름이 item에 설정 , sports[item]으로 프로퍼티 값을 구함 , 프로퍼티를 작성한 순서대로 읽혀진다는 것을 보장하지 않음.
+                soccer : "축구",
+                baseball : "야구"
+            };
+            for (var item in sports) {      // for (var item in sports) {코드}
+                log(item);                  // 실행 결과 : soccer , 축구 , baseball, 야구 .   item에 soccer가 들어감
+                log(sports[item]);          
+            }    
+            
+            
+
+            
+            // 빌트인(Built-in)
+            
+
+            // 빌트인 오브젝트 유형
+
+            
+            // Number 오브젝트
+
+
+            // Number 타입으로 변환
+            log(Number("123") + 500);       // 실행 결과 : 623  .   "123"이 String 타입이지만 값이 숫자이므로 숫자로 변환한다.  Number 타입이 되므로 500을 더하면 값이 연결되지 않고 더해진다
+            log(Number("ABC"));             // 실행 결과 : NaN  .  Number 타입으로 변환 할 수 없으면 NaN 반환
+
+
+            // 숫자 타입으로 반환
+            log(Number(0*14));      // 16진수를 10으로 변환                         실행 결과 : 20
+            log(Number(true));      // true는 1로, false는 0으로 변환된다.          실행 결과 : 1
+            log(Number(null));      // null은 0으로 변환                            실행 결과 : 0
+            log(Number(undefined));     // undefined는 NaN으로 변환                 실행 결과 : NaN
+
+
+
+            // Number 상수
+
+
+
+            // new 연산자
+            var obj = new Number();         // 빌트인 Number 오브젝트로 인스턴스를 생성하여 반환
+            log(typeof obj);                // 생성한 인스턴스 타입은 object                      실행 결과 : object
+
+
+            // 인스턴스 생성 목적
+            var oneObj = new Number("123");     
+            log(oneObj.valueOf());              // 실행 결과 : 123
+
+            var twoObj = new Number("456");
+            log(twoObj.valueOf());              // 실행 결과 : 456
+
+            
+
+            // Number 인스턴스 생성
+
+            // Number 인스턴스 생성
+            var obj = new Number("123");   // 빌트인 Number 오브젝트로 인스턴스를 생성하여 반환 . 파라미터 값이 문자열이면 숫자로 변환하여 생성한 인스턴스에 파라미터 값을 설정
+            log(obj.valueOf());             // 실행 결과 : 123
+
+
+
+            // 프리미티브 값 (언어에 있어 가장 낮은 단계의 값)
+            var obj = new Number(123);   // new Number(123)로 인스턴스를 생성하여 obj에 할당한 후 obj에 값을 더하면 값이 더해 진다.
+            log(obj + 200);             // obj가 인스턴스이므로 값을 더할 수 없는데 값이 더해지는 것은 123을 인스턴스의 프리미티브 값으로 설정하기 때문이다/
+                                        // 실행 결과 : 323   .  프리미티브 값을 갖는 인스턴스에 값을 더하면 인스턴스의 프리미티브 값에 값을 더한다.
+
+
+
+            // 프리미티브 값 반환
+            var obj = new Number("123")     // obj의 프리미티브 값을 반환한다.
+            log(obj.valueOf);               // 실행 결과 : 123
+
+
+
+            // String 타입으로 변환
+            var value = 20;
+            log(20 === value.toString());    // 20 === value.toString()의 결과는 false. 20을 String 타입으로 변환하기 때문
+                                                // 실행 결과 : false
+            log(value.toString(16));        // value.toString(16) .  20을 16진수로 변환하며 값은 14
+                                                // 실행 결과 : 14
+
+            // 유동 소수점 사용
+            log(20..toString());            // 20.toString() 형태로 작성하면 에러가 난다.  20이 아니라 20. 을 변환 대상으로 인식하므로 점(.)이 없는 valueToString() 형태가 되기 때문           
+                                            // 실행 결과 : 20       .   코드 처럼 20.. 을 작성한다.
+
+
+
+            // toLocaleString()
+            
+            // 숫자를 지역화 문자로 변환
+            var value = 1234.56;                    // 파라미터를 작성하지 않았을 때 1234.56에 콤마 (,)를 삽입하여 1,234.56으로 출력
+            log(value.toLocaleString());            // 실행 결과 : 1,234.56
+            log(value.toLocaleString('de-DE'));     // 실행 결과 : 1.234,56         파라미터에 de-DE(독일) 작성
+            log(value.toLocaleString('zh-Hans-CN-u-nu-han'));   //실행 결과 : 한자로 나옴      .   중국 한자 표시
+
+
+
+            // 지수 표기, 고정 소숫점 표기
+
+            // toExponential()
+
+            // 지수 표기
+            var value = 1234;                   // 파라미터에 값을 작성하지 않으면 1234에서 1을 소수점 앞에 표시하고 1.234처럼 234를 소수에 표시한다.
+            log(value.toExponential());         // 이어서 e+를 표시하고 정수에서 소수로 변환된 자릿수를 표시. 234가 3자리이므로 3이 표시된다.
+                                                // 실행 결과 : 1.234e+3
+
+            // 소수 이하 자릿수 작성
+            var value = 123456;         // 파라미터에 3을 작성했으므로 123456이 1.234e+5로 표시되어야 하지만, 1.234e+5로 표시된 것은 2345에서 3자리로 표시할 때 반올림하기 때문이다.
+            log(value.toExponential(3));  // 실행 결과 : 1.235e+5
+
+
+            // toFixed()
+            var value = 1234.567;      
+            log(value.toFixed(2));       // 파라미터에 2를 작성했으므로 소수 두 자리까지 표시한다. 이때, 셋째 자리에서 반올림한다.        실행 결과 : 1234.57 
+            log(value.toFixed());       // 파리미터 값을 작성하지 않으면 0으로 간주하여 소수 첫째 자리에서 반올림하여 정숫값을 표시한다.  실행 결과 : 1235
+                                        
+
+
+
+            // String 오브젝트 
+            
+            // +로 문자열 연결
+            var concat = 123 + "abc" + "가나다라";      
+            log(concat);                                // 실행 결과 : 123abc가나다라
+
+
+
+            // 역슬래시로 문자열 연결
+            var concat = "abc \ 가나다라";
+            log(concat);                                // 실행 결과 : abc 가나다라
+
+
+            // 문자열로 변환
+            // String()
+
+
+            // String 타입으로 변환
+            var value = String(123);
+            log(value);             // 실행 결과 : 123 
+            log(typeof value);      // 실행 결과 : String    
+            
+            log(typeof ("" + 123));     // 실행 결과 : String
+
+
+            // new String()
+            var obj = new String(123);
+            log(typeof obj);            // 실행 결과 : object
+
+
+            // valueOf()
+
+            // 프리미티브 값 반환
+            var obj =- new String(123);     // obj는 String 인스턴스이며 파라미터 값 123이 String 인스턴스의 프리미티브 값으로 설정된다.
+            log(obj.valueOf());             // 실행 결과 : 123  .   obj에 프리미티브 값으로 설정된 값 반환
+
+
+            
+            
+            // length 프로퍼티 (문자 수 반환)
+            var value = "ABC";      // "ABC"에 문자가 3개이므로 3을 반환
+            log(value.length);      // 실행 결과 : 3
+
+
+
+            // length 프로퍼티 활용
+            var value = "ABC";                          // "ABC"를 문자 하나씩 분리하여 반복 
+            for (var k = 0; k<value.length; k++) {      // 따라서 3번 반복한다.
+                log(value[k]);                          // 실행 결과 : A , B , C
+            };
+
+
+
+            // 화이트 스페이스 삭제
+            // trim()     
+
+            // 앞뒤 화이트 스페이스 삭제
+            var value = "  abcd  ";                 // abcd 앞뒤로 공백이 2개씩 있으므로 length 값은 8
+            log(value.length);                      // 앞뒤의 공백을 삭제하므로 length 값은 4
+
+            log(value.trim().length);               // 실행 결과    :    8  ,   4   
+
+
+
+
+            // 함수 호출 구조
+
+            // toString()
+            var value = 123;                   
+            var result = value.toString();       // 123을 String 타입으로 반환하므로 [실행 결과]에 string이 출력된다.
+            log(typeof result);                 // 실행 결과 : string
+
+
+            // JS 함수 호출 구조
+            var value = 123;                
+            value.toString();               // value.toString()은 Number 오브젝트의 toString()을 호출한다.
+
+            "123".toString();               // "123".toString()은 String 오브젝트의 toString()을 호출한다.
+
+
+
+            // 파라미터에 값 작성
+            var result = toString(123);     // Object 오브젝트의 toString()이 호출된다.
+            log(result);                    // 123을 오브젝트로 간주하여 Object 형태를 문자열로 변환한다.
+                                            // 실행 결과 : [object Undefined]
+
+
+
+            // 인덱스로 문자열 처리
+            // chartAt()
+
+            var value = "sports";           // JS에서 인덱스는 0부터 시작 
+            log(value.charAt(1));           // 0번 인덱스는 s , 1번 인덱스는 p  ,   value.charAt(1)을 ES5부터 [1] 형태로 사용할 수 있다.
+            log(value[1]);                  // 실행 결과 : p    ,   p
+
+
+            // 빈 문자열 반환
+            var value = "sports";           // 전체 문자열 수는 6
+            log(value.charAt(12));          // 파라미터의 인덱스가 전체 문자열 길이보다 크면 빈 문자열 반환
+                                            // 실행 결과 : ""
+
+
+            // [1] 형태 사용
+            var value = "sports";           // value[12]에서 12번째 인덱스가 없으며 undefined 반환
+            log(value[12]);                 // charAt(12)에서 빈 문자열을 반환하는 것과는 차이 있음.
+                                            // 실행 결과    :     undefined      .개념적으로 undefined 반환이 적절하다 (undefined는 시맨틱적으로 인덱스 번째가 없다는 뉘앙스가 강하다.)
+
+
+
+
+            // * indexOf()
+            var value = "123123";           // "123123"에서 2가 두 개이지만 처음 인덱스를 반환하므로 1을 반환
+            log(value.indexOf(2));          // 값을 구하게 되면 더 이상 값을 구하지 않습니다.
+            log(value.indexOf(23));         // indexOf(23)에서 23이 존재하며 2가 검색된 인덱스를 반환한다.
+                                            // 실행 결과    :   1   ,   1 
+
+
+            // * 두 번째 파라미터부터 검색
+            var value = "123123";           // indexOF(2, 3) 에서 3은 3번 인덱스부터 검색하므로 1이 아닌 4를 반환
+            log(value.indexOf(2,3));        // 실행 결과    :   4
+
+
+
+            // * 같은 문자가 없으면 -1 반환
+            var value = "123123";           
+            log(value.indexOf(15));         // 실행 결과 :  -1
+
+
+
+            // 두 번째 파라미터의 검색 기준
+            var value = "123123";
+            log(value.indexOf(2 , -1));         // 두 번째 파라미터 값이 0보다 작으면 처음부터 검색
+            log(value.indexOf(2, 9));           // 두 번째 파라미터 값이 length보다 크면 -1 반환
+            log(value.indexOf(2, "A"));         // 두 번째 파라미터가 NaN이면 처음부터 검색
+                                                // 실행 결과    :   1   ,   -1  ,   1
+
+            
+
+            // lastIndexOf()
+
+            // 오른쪽에서 왼쪽으로 검색
+            var value = "123123";               // "123123"에서 2가 두 개이지만 마지막 인덱스를 반환하므로 4를 반환
+            log(value.lastIndexOf(2));          // 실행 결과    :   4
+
+
+
+            // 두 번째 파라미터에 음수 작성
+            var value = "1231231";              // 두 번째 파라미터가 0보다 작으면 -1 반환
+            log(value.lastIndexOf(1, 4));       // 실행 결과 : 3
+            log(value.lastIndexOf(2, -1));      // 실행 결과 : -1
+
+
+
+
+
+            // 코딩 시간
+            var value = "1234512345"
+            log(value.indexOf(2, "A"));
+            log(value.lastIndexOf(2, -1));
+
+
+
+            // 문자열 연결, 대소문자 변환
+            // concat()
+
+            // 문자열로 연결
+            var result = "sports".concat("축구", 11);
+            log(result);                                // 실행 결과    :   sports축구11
+
+            var obj = new String(123);
+            log(obj.concat("ABC"));                     // 실행 결과    : 123ABC
+
+
+            // 영문 대소문자 바꾸기
+            log("ABCDE".toLowerCase());                 // 실행 결과    :   abcde 
+            log("abcde".toUpperCase());                 // 실행 결과    :   ABCDE
+
+
+
+
+            // 문자열 추출
+            // substring()
+
+            // 파라미터 모두 작성
+            var value = "01234567";                     // 2번 인덱스부터 5번 인덱스 직전까지 반환
+            log(value.substring(2, 5));                 // 실행 결과    :   234
+
+
+
+            // 파라미터를 하나만 작성
+            var value = "01234567";                    
+            log(value.substring(5));                                                        // 첫 번째 파라미터만 작성하면 첫 번째 인덱스부터 끝까지 반환
+            log(value.substring());                // 실행 결과 :  567 ,   01234567        // 파라미터를 모두 작성하지 않으면 전체 반환
+
+
+
+            // 전체 length 사용
+            var value = "01234567";                                                     // 두 번째 파라미터 값이 전체 length보다 크면 전체 문자열 length 사용
+            log(value.substring(5, 20));            // 실행 결과    :     567           //     따라서 시작 인덱스부터 끝까지 반환
+
+
+
+
+            // 다양한 선택
+            var value = "01234567";
+            log(value.substring(-7, 2));            // 파라미터 값이 음수이면 0으로 간주. 0번 인덱스부터 2번 인덱스 직전까지 반환
+            log(value.substring(5, 1));             // 첫 번째 파라미터 값이 두 번째보다 크면 파라미터 값을 바꿔서 처리 value.substring(1, 5) 형태가 됨
+            log(value.substring(5, "A"));           // NaN는 0으로 간주 . 첫 번째 파라미터 값이 두 번째보다 크므로 value.substring(0, 5) 형태가 됨
+                                                    // 실행 결과 : 01   ,   1234   ,   01234
+
+
+
+            // substr()
+
+            // 파라미터 모두 작성
+            var value = "01234567";             // 0번 인덱스부터 문자 3개를 반환
+            log(value.substr(0, 3));            // 실행 결과    :   012
+
+
+
+            // 첫 번째 파라미터
+            var value = "01234567";             
+            log(value.substr(-3, 3));           // 실행 결과 : 567
+
+
+            // 두 번째 파라미터
+            var value = "01234567";             
+            log(value.substr(4));        // 실해 결과   :   4567        두 번째 파라미터를 작성하지 않으면 양수 무한대, 즉 최댓값이므로 첫 번째 파라미터부터 전체 반환
+            log(value.substr());        // 실행 결과    :   01234567    첫 번째 파라미터를 작성하지 않으면 0으로 간주 따라서 전체가 반환된다.
+            
+
+
+            // slice()
+
+            // 파라미터 모두 작성
+            var value = "01234567";      
+            log(value.slice(1, 4));         // 실행 결과    :   123  ,        1번 인덱스부터 4번 인덱스 직전까지 반환
+            log(value.slice(false, 4));     // 실행 결과    :   0123 ,          false , undefined, null, 빈 문자열은 0으로 간주
+
+
+
+            // 파라미터 모두 작성하지 않음
+            var value = "01234567";     
+            log(value.slice("A"));      // 실행 결과    :   01234567            첫 번째 파라미터가 NaN이면 0으로 간주
+            log(value.slice());         // 실행 결과    :   01234567            파라미터를 모두 작성하지 않으면 전체 반환
+
+
+
+            // 두 번째 파라미터
+            var value = "01234567";
+            log(value.slice(5));            // 실행 결과    :   567             두 번째를 작성하지 않으면 length 사용
+            log(value.slice(5, 3));         // 실행 결과    :   ""              첫 번째가 두 번째보다 크거나 같으면 빈 문자열
+
+
+            // 음수 사용
+            var value = "01234567";
+            log(value.slice(4, -2));        // 실행 결과    : 45    파라미터 값이 음수이면 length를 더해 사용. 더한 값이 0보다 작으면 0을 사용
+            log(value.slice(-5, -2));       // 실행 결과    : 345
+            log(value.slice(-2, -5));       // 실행 결과    : ""
+
+
+
+
+            // 정규 표현식 사용 함수
+            // match()
+
+
+            // 정규 표현식의 패턴 매치 (매치는 정규 표현식 용어)
+            var value = "Sports";       
+            log(value.match(/s/));          // 실행 결과 : [s]    ,     match(/s/)에서 /s/는 정규 표현식으로 소문자 s를 매치. "Sports" 끝에 s가 있으므로 매치되며 매치된 문자를 배열로 반환
+            log(value.match("spo"));        // 실행 결과 : null    ,    match("spo")에서 spo가 있으나 대문자 s이므로 null 반환 
+
+
+
+            // replace()
+
+            // 문자열 대체
+            var value = "abcabc";
+            log(value.replace("a", "바꿈"));    // 실행 결과 : 바꿈bcabc        .       /a/는 처음 하나만 바꿈
+            log(value.replace(/a/, "바꿈"));    // 실행 결과 : 바꿈bcabc            
+
+            function change() {
+                return "함수";
+            };
+            log(value.replace(/a/, change));    // 실행 결과 : 함수bcabc                 함수를 실행하고 반환된 값으로 바꿈
+
+
+
+            // search()
+
+            // 매치된 첫 번째 인덱스 반환
+            var value = "cbacba";       
+            log(value.search(/a/));         // 실행 결과    :   2                     매치된 첫 번째 인덱스 반환
+            log(value.search("K"));         // 실행 결과    :   -1                    K가 없으므로 매치되지 않음. 매치되지 않으면 -1 반환
+
+
+
+            // split()
+
+            // 분리자 작성
+            log("12_34_56".split("_"));     // 실행 결과    :   [12, 34, 56]        "_"를 분리자로 사용,    "12_34_56"을 "_"로 분리
+            
+
+            // 분리자를 작성하지 않음
+            var value = "123";          
+            log(value.split(""));           // 실행 결과    : [1, 2, 3]         분리자에 빈 문자열을 작성하면 문자를 하나씩 분리하여 반환
+            log(value.split());             // 실행 결과    : [123]             분리자를 작성하지 않으면 분리 대상 전체를 하나의 배열로 반환
+
+
+            // 두 번째에 숫자 작성
+            var value = "12_34_56_78";
+            log(value.split("_", 3));       // 실행 결과 : [12, 34, 56]         두 번째 파라미터에 숫자를 작성하면 앞에서부터 수만큼만 반환
+
+            value = "123";      
+            log(value.split("A"));          // 실행 결과 :  [123]               분리자가 분리 대상에 없으면 분리 대상 전체를 하나의 배열로 반환
+
+
+
+
+            // Unicode 관련 함수
+
+            // charCodeAt()
+            var value = "1Aa가";
+            for (var k = 0; k < value.length; k++) {
+                log(value.charCodeAt(k));               // charCodeAt(12)에서 12번째가 없으며 NaN 반환
+            };
+            log(value.charCodeAt(12));                  // 실행 결과 : 49, 65, 97, 44032, NaN
+
+
+
+            // fromCharCode()
+            log(String.fromCharCode(49, 65, 97, 44032));       // 실행 결과 : 1Aa가
+
+
+
+            // localeCompare()
+
+            // 비교 결과를 1, 0, -1로 반환
+            var value = "나";
+            log(value.localeCompare("가"));     // 실행 결과    :   1       ..      "가"가 "나"보다 앞에 있으므로 1반환  
+            log(value.localeCompare("나"));     // 실행 결과    :   0       ..      비교 기준과 비교 대상이 모두 "나"이므로 0
+            log(value.localeCompare("다"));     // 실행 결과    :   -1      ..      "다"가 "나"보다 뒤에 있으므로 -1 반환
+
+
+
+
+            // 호스트 오브젝트
+            var node = document.querySelector("div");       // querySelector()는 DOM 함수   ,   DOM에서 제공하는 오브젝트를 호스트(Host) 오브젝트라고 부른다. 
+            log(node.nodeName);                 // 실행 결과    :   DIV                    ,     마치 JS 함수처럼 DOM 함수를 사용 
+
+
+
+            // new Object()
+            // Number 오브젝트 생성
+            var newNum = new Number(123);
+            web.log(typeof newNum);         // 실행 결과 : object               new Number(123)로 생성한 인스턴스 타입은 object이며 프리미티 값은 123
+            web.log(newNum + 100);          // 실행 결과 :  223
+
+
+
+            // Object 오브젝트 생성
+            var newObj = new Object(123);       // new Object(123)로 생성한 인스턴스의 타입도 object이고 프리미티브 값은 123
+            web.log(typeof newObj);      // 실행 결과   :   object          2개 인스턴스 모두 100을 더할 수 있으며 값이 더해진다는 것은 Number 타입이라는 것
+            web.log(newObj + 100);      // 실행 결과    :   223             new Object()는 파라미터 값 타입이 Number 타입이면 Number 인스턴스를 생성하고 String 타입이면 String 인스턴스를 생성
+
+
+            // 파라미터를 작성하지 않으면?
+            var newObj = new Object();          // new Object() 처럼 파라미터를 작성하지 않으면 undefined를 작성한 것과 같으며 값을 갖지 않은 Object 인스턴스 생성
+            web.log(newObj);                    // 실행 결과 : {}     , object 디폴트값은 {}
+
+
+
+
+            // Object()
+            var obj = Object({name: "JS책"});
+            log(obj);                               // 실행 결과 : {name: JS책} 
+
+            var emptyObj = Object();                // 파라미터를 작성하지 않으면 new Object()와 같음
+            log(emptyObj);                          // 실행 결과 : {}
+
+
+
+            // Object() 사용
+            var obj = Object({name: "value"});      // true가 출력된 것은 Object로 생성한 인스턴스를 뜻한다.
+            log(obj);                               // 실행 결과    :   {name: value}
+            log(obj instanceof Object);             // 실행 결과    :   true
+
+
+
+            // Object 리터럴{} 사용
+            var obj = {name: "value"};              // Object()와 Object 리터럴{} 모두 Object 인스턴스를 생성한다. 그래서 Object()를 사용하지 않고 간단하게 {}를 사용한다.
+            log(obj);                               // 실행 결과    :   {name: value}           
+            log(obj instanceof Object);             // 실행 결과    :   true                true가 출력된 것은 Object로 생성한 인스턴스를 뜻한다.
+
+
+
+            // valueOf()
+
+            // 프리미티브 값 반환
+            var obj = {key: "value"};               // obj에 프리미티브 값으로 설정된 값 반환
+            log(obj.valueOf());                     // 실행 결과 : {key: value}
+
+
+
+
+
+
+            // 빌트인 오브젝트 구조
+
+
+
+
+            // 함수와 메서드
+
+
+            // 함수 호출
+            log(Object.create);             // 실행 결과  :  function create() {[native code]}          .   Object에 create가 존재하므로 함수 출력
+            log(Object.prototype.create);   // 실행 결과  : undefined                             . Object.prototype에 create가 존재하지 않으므로 undefined 출력
+
+
+
+
+            // 메서드 호출
+            log(Object.prototype.toString);     // 실행 결과  :  function toString() {[native code]}    . Object.prototype에 toString이 존재하므로 함수 출력
+
+            var obj = {};                       // 인스턴스를 사용하여 메서드를 호출할 때는 prototype을 작성하지 않는다.
+            log(obj.toString);                  // 실행 결과  :  function toString() {[native code]}    . prototype에 연결된 메서드로 인스턴스를 생성하기 때문
+
+
+            // 함수의 파라미터에 값 작성
+            log(String.fromCharCode(49, 65));       // 실행 결과 : 1A       .  함수 앞에 배열로 값을 작성하면 Array 오브젝트의 함수가 호출되므로
+                                                    //                          String 오브젝트의 함수를 호출하면서 파라미터에 값을 작성해야한다.
+
+
+
+            // 프로퍼티 처리 메서드
+
+            // hasOwnProperty()
+
+            // 프로퍼티 존재 여부   
+            var obj = {value: 123};                     // obj 인스턴스에 value 프로퍼티가 존재하며, obj를 만들면서 직접 작성했으므로 true 반환
+            var own = obj.hasOwnProperty("value");       
+            log(own);                                   // 실행 결과    :      true
+
+
+            // 값은 체크하지 않음
+            var obj = {value: undefined};               // undefined가 값이지만 false로 인식된다.
+            var own = obj.hasOwnProperty("value");      // 하지만, 값은 체크하지 않고 존재 여부만 체크하므로 true 반환
+            log(own);                                   // 실행 결과    :   true
+
+
+
+
+            // 자신이 만든 것 체크
+            var obj = {};                                           
+            var own = obj.hasOwnProperty("hasOwnProperty");         // hasOwnProperty()는 자신이 만든 것이 아니라 빌트인 Object 오브젝트에 있는 것
+            log(own);                  // 실행 결과     :   false       .  {}를 실행하면 빌트인 Object 오브젝트의 prototype에 연결된 메서드를 사용하여 Object 인스턴스를 만드므로 자신이 만든 것이 아니다.
+
+
+
+            // propertyIsEnumerable() 
+
+            // 열거 가능
+            var obj = {sports: "축구"}                          // {sports: "축구"} 형태로 생성한 인스턴스는 obj의 프로퍼티를 열거할 수 있다.
+            log(obj.propertyIsEnumerable("sports"));            // 실행 결과 : true
+
+
+            // 열거 불가
+            var obj = {sports: "축구"}
+            Object.defineProperty(obj, "sports", {enumerable: false});              // {enumerable: false}로 열거 불가 설정
+            log(obj.propertyIsEnumerable("sports"));                                
+
+            for(var name in obj) {                                              // for-in 문에서 프로퍼티가 열거되지 않는다.
+                log(name);
+            }                                                                   // 실행 결과    :   false
+    
+
+
+
+            // Object와 prototype
+
+            // 빌트인 Object 특징
+
+
+            // isPrototypeOf()
+
+
+            // 프로퍼티 존재 여부
+            var numObj = new Number(123);                       // Object.prototype 처럼 오브젝트의 prototype을 작성한다.
+            log(Object.prototype.isPrototypeOf(numObj));        // numObj에 Object.prototype의 존재를 체크한다. 존재하므로 true 반환
+                                                                // 실행 결과 : true
+
+
+            // toString()
+
+            // 인스턴스 타입을 문자열 표시
+            var point = {book: "책"};
+            log(point.toString());          // 실행 결과   :    [object Object]     .   toString() 앞에 Object 인스턴스를 작성했으며, toString()을 실행하면 [실행 결과]처럼 [object Object]를 표시
+                                            
+            var obj = new Number(123);      // 앞의 소문자 object는 인스턴스를 나타내고 뒤의 대문자 Object는 빌트인 Object를 나타낸다.
+            log(Object.prototype.toString.call(obj));   // 실행 결과   :      [object Number]
+
+
+
+            // toLocaleString()
+            log(1234.56.toLocaleString());          // 1234.56에 콤마(,)를 삽입하여 1,234.56으로 출력 , 이때에는 Number.prototype.toLocaleString() 메서드가 호출된다.
+            log("4567.89".toLocaleString());        // "4567.89"는 String 타입이며 String.prototype.toLocaleString()이 없으므로 Object.prototype.toLocaleString() 메서드가 호출된다.
+                                                    // Object의 toLocaleString()이 없으면 에러 발생 즉, 에러 발생을 방지하기 위한 것이다.
+                                                    // 실행 결과 : 1,234.56         ,       4567.89
+
+
+
+
+
+            // Function 오브젝트
+
+            // nwe Function()
+
+            // 파라미터 2개 작성
+            var obj = new Function("one", "two", "return one + two;");      // 파라미터를 3개 작성했으며, 1번째와 2번째는 호출한 곳에서 넘겨준 값을 매핑할 파라미터 이름을 작성
+            log(obj(100, 200));                     // 실행 결과    :   300        . 3번째는 호출되었을 때 실행될 함수 코드
+
+
+            // 파라미터 하나 작성
+            var obj = new Function("return 1 + 2");
+            log(obj());                                 // 실행 결과    :   3
+
+
+
+            // Function()
+
+
+
+            // 함수 생명 주기
+            function getBook(title) {
+                return title;
+            };
+            var result = getBook("JS북");
+            log(result);                        // 실행 결과    :   JS북
+        
+
+            // length 프로퍼티
+
+            // 파라미터 수 설정
+            function add(one, two) {
+                return one + two;
+            };
+            log(add.length)             // 실행 결과 : 2
+
+
+
+            // 앞에서 순서대로 값 설정
+            function add(one, two) {
+                return one + two;           // add(1,2,3,4)로 호출하면 one에 1이 설정되고 two에 2가 설정된다.
+            };
+            add(1,2,3,4);                   // add() 함수를 호출한 곳에서 보낸 값의 수가 아니다.
+            log(add.length);                // 실행 결과    :   2           .       length 값은 4가 아니라 2이다.
+
+
+
+
+            // 함수 형태
+
+            // 함수 선언문 형태
+            function getBook(title) {
+                return title;
+            };
+            var result = getBook("JS책");
+            log(result);                    // 실행 결과 : JS책
+
+
+
+            // 함수 표현식 형태
+            var getBook = function(title) {
+                return title;
+            };
+            var result = getBook("JS책");
+            log(result);                        // 실행 결과 : JS책
+
+
+
+            // 식별자 위치의 함수 이름
+            var getBook = function inside(value) {      // inside 이름으로 function 오브젝트를 생성하여 getBook 변수에 할당한다.
+                if (value === 102) {                // 함수 외부에서 inside()를 호출할 수 없으며 getBook()을 호출하여 함수 안으로 이동한 후 inside()를 호출할 수 있다.
+                    return value;                   // 함수 안에서 inside()를 호출하는 것은 자신을 호출하는 것이므로 무한으로 반복하여 호출하게 된다.
+                };
+                log(value);
+                return inside(value + 1);
+            };                                      // 함수가 종료되도록 조치를 취해야 함
+            getBook(100);                             
+
+
+
+            // call()
+
+            // 함수 호출
+            function getTotal(one, two) {                   // getTotal.call(this. 10 , 20) 형태로 호출. 1번째 파라미터 this가 파라미터 값으로 넘어가지 않는다.
+                return one + two;                   // 2번째 파라미터가 첫 번째 파라미터로 넘어가고 3번째 파라미터가 두 번째 파라미터로 넘어간다.
+            };                                      // one에 10이 , two에 20이 설정된다.
+            var result = getTotal.call(this, 10, 20);       // call()은 파라미터 수가 고정일 때 사용한다.
+            log(result);            // 실행 결과    :       30
+
+
+
+            // 첫 번째 파라미터
+            var value = {one: 10, two: 20};
+            function getTotal() {                   // getTotal.call(value)의 파라미터에 value 오브젝트 작성
+                return this.one + this.two;
+            };
+            var result = getTotal.call(value);      // getTotal()에서 this가 value 오브젝트 참조 . this.one으로 프로퍼티 값을 구할 수 있다.
+            log(result);                            // 실행 결과    :   30
+
+
+
+            // apply()
+
+
+            // 파라미터 수가 유동적일 때 사용
+            function getTotal(one, two) {                       // 파라미터 수가 유동적이므로 배열을 사용한다.
+                return one + two;
+            };
+            var result = getTotal.apply(this, [10, 20]);        // getTotal() 파라미터 one에 10이 two에 20이 설정된다.
+            log(result);                            // 실행 결과    :   30
+
+
+
+            // toString()
+
+            // 함수를 문자열로 반환
+            var getBook = function() {
+                return 100 + 23;
+            };
+            var result = getBook.toString();
+            log(result);                            // 실행 결과 : function() {return 100 + 23;}
+
+
+
+
+
+            // Argument 오브젝트
+
+            // 모든 파라미터에 값 저장
+            function getTotal(one) {                                // getTotal()을 호출한다. 10, 20, 30을 파라미터 값으로 넘겨 준다.
+                return one + arguments[1] + arguments[2];           // 함수가 호출을 받게 되면 함수 안에 arguments 이름을 가진 오브젝트를 생성
+            };                                                  // 10, 20, 30이 arguments에 순서대로 설정된다. arguments[0] 처럼 인덱스를 사용하여 값을 사용
+            var result = getTotal(10, 20, 30);              // getTotal()의 one 파라미터에 10이 설정된다.
+            log(result);                                // 실행 결과    :   60
+
+
+
+            // apply()와 아규먼트 오브젝트
+            function getTotal(one) {                        // apply()의 두 번째 파라미터가 배열이며 파라미터 값이 유동적이다.
+                return one + arguments[1] + arguments[2];       // 이때 arguments를 사용하여 유동적인 파라미터 수에 대응할 수 있다.
+            };                                                  // 사용 사례 : 웹페이지에서 "좋아하는 음악"을 checkbox로 선택받으면 선택한 수가 유동적이다. apply()와 아규먼트 오브젝트로 대응할 수 있다.
+            var result = getTotal.apply(this, [10, 20, 30]);    
+            log(result);                // 실행 결과 : 60
+        
+
+
+            
+            // Global 오브젝트
+
+
+            // Global 프로퍼티
+
+            // 글로벌 프로퍼티
+            log(NaN);               //  실행 결과   :   NaN
+            log(Infinity);          // 실행 결과    :   Infinity
+            log(undefined);         // 실행 결과    :   undefined
+
+
+
+
+            // Global과 Window 관계
+
+
+
+
+
+            // 정수 실수 변환
+
+            // parseInt()
+
+            // 소수를 정수로 변환
+            log(parseInt(123.56));      // 실행 결과 : 123      .   소수를 제외하고 정수만 반환
+
+
+            // 소수, 문자 제외
+            log(parseInt("-123.45"));       // 실행 결과    :   -123              . String 타입이라도 값이 숫자이면 변환
+            log(parseInt("123px"));         // 실행 결과    :    123              . "123px"에서 123은 변환하고 px는 변환하지 않음
+            log(parseInt("12AB34"));        // 실행 결과    :     12              . "12AB34"에서 12는 변환하고 AB와 34는 변환하지 않음 
+
+
+
+            // 변환 기준    (0또는 빈 문자열을 제외시킴)
+            log(parseInt("0012"));      // 실행 결과  :  12             .  0012에서 00은 없어짐
+            log(parseInt("  123"));     // 실행 결과  :  123            .   "  12"에서 앞의 공백을 무시하고 변환
+            log(parseInt());            // 실행 결과  :  NaN            .   값을 작성하지 않으면 NaN undefined가 아닌 것은 기준이 Number이기 때문    
+
+
+            // 진수 적용
+            log(parseInt(13, 16));      // 실행 결과   :    19          .   두 번째 파라미터에 16진수 작성. 13을 16진수로 변환.  16 + 3은 19
+            log(parseInt("0x13"));      // 실행 결과   :    19          .   0(숫자)x는 16진수를 나타냄
+
+
+
+            // parsefloat()
+
+            // 소수 포함
+            log(parseFloat("-123.45") + 6);     // 실행 결과    :   -117.45     . String 타입이지만 소수를 포함하여 변환. -123.45에 6을 더하면 -117.45
+            log(parseFloat("12.34AB56"));       // 실행 결과    :   12.34       . 12.34AB56에서 12.34는 변환되고 AB56은 변환되지 않음.  문자 이후는 변환하지 않는다.
+
+
+
+            // 변환 기준 (지수 , 공백 변환)
+            log(parseFloat("1.2e3"));               // 실행 결과    :   1200        .  지수를 변환
+            log(parseFloat("  12.34  ") + 20);      // 실행 결과    :   32.34       .  Number 타입의 12.34로 변환하므로 20을 더할 수 있음
+            log(parseFloat());                      // 실행 결과    :   NaN         .  값을 작성하지 않으면 NaN
+
+
+
+
+            // NaN, 유한대 체크 함수
+
+            // isNaN()
+
+            // true가 되는 경우
+            log(isNaN("ABC"));      // 실행 결과    :   true    .  값이 String 타입이므로 true 반환
+            log(isNaN());           // 실행 결과    :   true    .  파라미터를 작성하지 않으면 undefined와 같음
+
+
+            // false 가 되는 경우
+            log(isNaN(123));        // 실행 결과    :   false       .   
+            log(isNaN("123"));      // 실행 결과    :   false       .   String 타입이라도 값이 숫자이면 숫자로 인식
+            log(isNaN(null));       // 실행 결과    :   false       .   null을 숫자로 변환하면 0
+
+
+            // NaN 비교
+            log(NaN === NaN);               // 실행 결과    :   false       
+            log(Object.is(NaN, NaN));       // 실행 결과    :   true
+
+
+            // isFinite()
+
+            // false가 되는 경우
+            log(isFinite(0 / 0));       // 실행 결과    :   false           .       NaN
+            log(isFinite(1 / 0));       // 실행 결과    :   false           .       Infinity
+            log(isFinite("ABC"));       // 실행 결과    :   false           .       Infinity
+            
+
+
+            // true가 되는 경우
+            log(isFinite(123));         //  실행 결과   :   true
+            log(isFinite("123"));       //  실행 결과   :   true
+            log(isFinite(false));       //  실행 결과   :   true
+
+
+
+
+            // 인코딩 , 디코딩
+
+            // URI 인코딩
+            var uri = "data?a=번&b=호";     
+            log(encodeURI(uri));            // 실행 결과    :   data?a=%EB%B2%88&b=%ED%98%B8
+
+
+
+            // encodeURIComponent()
+
+
+            // decodeURI()
+
+
+            // 디코딩
+            var uri = "data?a=%EB%B2%88&b=%ED%98%B8";
+            log(decodeURI(uri));                            // 실행 결과    :   data?a=번&b=호
+
+
+
+            // decodeURIComponent()
+
+
+
+
+
+            // eval() 함수              .   보안에 문제가 있다      .       사용 비권장
+
+            // 문자열 코드 실행
+            var result = eval("parseInt('-123.45')");
+            log(result);                                // 실행 결과    :  -123
+
+
+
+
+            // Array 오브젝트(ES3)
+
+
+
+            // 1차원 배열
+            var list = [12, 34, 56];
+            for (var k = 0; k < list.length; k++) {
+                log(list[k]);
+            };                                              //  실행 결과 : 12, 34, 56
+
+
+
+            // 2차원 배열
+            var list = [[12, 34, 56]];
+            for (var k = 0; k < list.length; k++) {
+                var one = list[k];
+                for (var m = 0; m < one.length; m++) {
+                    log(one[m]);
+                };
+            };                                              // 실행 결과 : 12 , 34 , 56
+
+
+
+            // 3차원 배열
+            var list = [[[12, 34, 56]]];
+            for (var k = 0; k < list.length; k++) {
+                var one = list[k];
+                for (var m = 0; m < one.length; m++) {
+                    var two = one[m];
+                    for (var p = 0; p < two.length; p++) {
+                        log(two[p]);
+                    };
+                };
+            };                                          // 실행 결과    :   12, 34, 56                                  
+
+
+
+
+
+            // Array 오브젝트 프로퍼티 (ES3)
+
+
+
+            // Array 인스턴스 생성
+
+
+            // 빈 배열
+            var obj = new Array();
+            log(typeof obj);            // 실행 결과    :   object          new Array()로 생성한 인스턴스 타입은 object
+            log(obj.length);            // 실행 결과    :   0               length는 배열의 엘리먼트 수를 나타내며 엘리먼트가 없으므로 0 출력
+
+
+
+            // 값 작성 형태
+            var one = new Array(10 , 20);
+            log(one);                       // 실행 결과    :   [10, 20]         .  값을 콤마로 구분하여 다수 작성.     작성한 순서대로 엘리먼트 값으로 설정
+            var two = new Array([30, 40]);  
+            log(two);                       // 실행 결과    :   [[30, 40]]       .  배열로 작성하면 1차원을 더한 차원이 된다.
+
+
+
+            // 숫자 하나 작성
+            var obj = new Array(3);         // 숫자 하나를 작성하면 엘리먼트 수가 되어 3개의 엘리먼트를 가진 배열이 된다.
+            log(obj);                       // 실행 결과    :   [undefined, undefined, undefined]  .    엘리먼트에는 undefined가 설정된다.
+
+
+
+
+            // Array()
+
+
+            // length 프로퍼티
+
+            // length 값    
+            var value = [1, 2, 3];              // [1, 2, 3]의 length 값은 3    , {length : 3} 형태로 설정되므로 length를 프로퍼티 이름으로 액세스 할 수 있음.
+            log(value.length);          // 실행 결과    :   3
+
+
+
+
+            // length 값을 크게 변경
+            var value = [1, 2, ,3];     
+            value.length = 5;           // 늘어난 엘리먼트 값은 undefined
+            log(value);                 // 실행 결과    :   [1, 2, 3, undefined, undefined]
+
+
+
+            // length 값을 작게 변경
+            var value = [1, 2, 3,];     
+            value.length = 2;           // 3에서 2로 줄이면 뒤의 엘리먼트가 삭제된다.
+            log(value);                 // 실행 결과    : [1, 2]
+
+
+
+
+
+
+
+            // 엘리먼트 추가, 삭제 메커니즘
+
+            // 삽입할 위치에 인덱스 저장
+            var value = [1, 2];
+            value[4] = 5;       // 값을 설정하지 않은 추가된 엘리먼트에 undefined 설정
+            log(value);         // 실행 결과 : [1, 2, undefined, undefined, 5]
+
+
+
+            // 표현식으로 인덱스 지정
+            var value = [1, 2];
+            value[value.length + 2] = 5;            // 인덱스에 값을 더해 인덱스로 사용
+            log(value);             // 실행 결과    :   [1, 2, undefined, undefined, 5]
+
+
+
+            // delete 연산자
+
+            // 변수는 삭제 불가
+            var value = 123;                                                 // var 변수를 삭제할 수 없다
+            log(delete value);          // 실행 결과    :   false           . 삭제 실패로 처리하여 false가 반환된다.
+
+
+            // 글로벌 변수는 삭제 가능
+            value = "글로벌 변수";
+            log(delete value);      // var 키워드를 사용하지 않은 글로벌 변수는 삭제할 수 있다.
+
+            try {
+                log(value);         // 실행 결과    :   true    .           삭제하게 되어 true가 반환된다.
+            } catch(e) {
+                log("존재하지 않음");
+            };                      // 실행 결과    :     존재하지 않음
+
+
+
+
+            // 오브젝트의 프로퍼티 삭제
+            var book = {title: "책"};
+            log(delete book.title);     // 실행 결과 :  true            .   오브젝트 이름.프로퍼티 이름 형태로 작성
+            log(book.title);            // 실행 결과 :  undefined       .   오브젝트에 프로퍼티 이름이 없으면 undefined 반환
+
+
+
+            // 오브젝트 전체 삭제
+            var book = {title : "책"};      // var 변수에 오브젝트를 할당하면 오브젝트 전체를 삭제할 수 없다.
+            log(delete book);               // 실행 결과    :   false
+
+            sports = {item : "축구"};       // var 키워드를 사용하지 않은 변수에 할당하면 삭제할 수 있다.
+            log(delete sports);             // 실행 결과    :   true                            .       var 키워드를 사용해야 하는 또 하나의 목적
+
+
+
+            // 인덱스로 삭제
+            var value = [1, 2, 3, 4];       // 1번 인덱스가 존재하므로 삭제되며 true 반환
+            log(delete value[1]);           // 실행 결과    :   true    .       삭제하였으므로 length가 4에서 3으로 줄어야 하는데 변하지 않고 4가 출력
+            log(value.length);              // 실행 결과    :   4       .       이것은 배열 처리 메커니즘 때문이다
+
+
+
+
+
+            // 배열 엘리먼트 삭제 메커니즘
+            var value = [1, 2, 3, 4,];
+            delete value[1];                // 삭제한 인덱스에 undefined가 설정된다.
+            log(value);                     // 실행 결과    :   [1, 2, undefined, 3, 4] 앞으로 하나씩 당겨서 엘리먼트를 이동하면 처리 시간이 걸리기 때문
+
+            for (var k = 0; k < value.length; k++) {
+                log(value[k]);
+            };                              // 실행 결과    :   1   , undefined,    3,  4
+
+
+
+
+
+            // 엘리먼트 삽입, 첨부
+
+            // 0번 인덱스에 삽입
+            var value = [1, 2];
+            value.unshift(345, 67);
+            log(value);                 // 실행 결과    :   [345, 67, 1, 2]
+
+
+
+            // 배열 끝에 첨부
+            var value = [1, 2];
+            value.push(345, 67);    
+            log(value);             // 실행 결과    :   [1, 2, 345, 67]
+
+
+
+
+            // concat()
+
+            // 배열에 파라미터 값을 연결
+            var value = [1, 2];
+            var result = value.concat(3, 4);
+            log(result);                        // 실행 결과    :   [1, 2, 3, 4]
+
+
+            // 값만 반영
+            var value = [1, 2];
+            var result = value.concat([3], [4]);
+            log(result);                        // 실행 결과    :   [1, 2,  3,  4]
+
+
+
+
+
+            // 엘리먼트 복사
+
+            // slice()
+
+            // 시작, 끝 파라미터 모두 작성
+            var origin = [1, 2, 3, 4, 5];
+            var result = origin.slice(1, 3);
+            log(result);                        // 실행 결과    :   [2, 3]                  1번 인덱스부터 3번 인덱스 직전까지 복사. 즉, 1번과 2번을 복사
+            log(origin);                        // 실행 결과    :   [1, 2, 3, ,4, 5]        복사 대상 원본은 바뀌지 않는다.   
+
+
+
+
+            // true, false를 숫자로 변환
+            var value = [1, 2, 3, 4, 5];
+            log(value.slice(true, 3));          //  실행 결과   :   [2, 3]
+            log(value.slice(false, 3));         // 실행 결과    :   [1, 2, 3]
+
+
+
+            // 첫 번째만 작성
+            log([1, 2, 3, 4, 5].slice(2));      // 실행 결과    :   [3, 4, 5]       첫 번째 파라미터를 작성하고, 두 번째를 작성하지 않으면 2번 인덱스부터 끝까지 반환
+
+
+
+            // 첫 번째 값 > 두 번째 값
+            log([1, 2, 3, 4, 5,].slice(4, 3));          // 실행 결과    :   []          .첫 번째 파라미터 값이 두 번째 파라미터 값보다 크면, 빈  배열을 반환한다.
+
+
+
+            // 파라미터 값이 음수
+            var value = [1, 2, 3, 4, 5];
+            log(value.slice(-4, -2));           // 실행 결과  :   [2, 3]        파라미터 값이 음수이면 length 값을 더한다. -4 + 5 = 1   ,  따라서 slice(1, 3)을 실행
+
+
+
+
+
+            // 엘리먼트 값을 문자열로 변환
+
+            // join()
+
+            // 구분자 작성
+            var value = [1, 2, 3];
+            var result = value.join("##");
+            log(result);                    // 실행 결과    :   1##2##3
+            log(typeof result);             // 실행 결과    :   string
+
+
+
+            // 파라미터를 작성하지 않음
+            var value = [1, 2, 3];
+            var result = value.join();
+            log(result);                    // 실행 결과    :  1, 2, 3
+
+
+
+            // 빈 문자열 작성
+            var value = [1, 2, 3];                  // 엘리먼트 값만 연결하여 반환
+            var result = value.join("");            // 사용 빈도수가 높다   ,   데이터로 HTML의 마크업을 만들어 한 번에 표시할 때 사용
+            log(result);                    // 실행 결과     :      123
+
+
+
+            // 문자열로 연결
+            var result = ["A", "B", "C"].toString();        // 2차원 배열의 각 엘리먼트 값을 1차원 배열로 펼치고, 다시 1차원을 문자열로 연결하여 반환한다.
+            log(result);                                    //  실행 결과   : A, B, C
+            log([["가"], ["다"]]).toString();                //  실행 결과   : 가, 다
+
+
+
+
+            // toLocaleString()
+
+            // 지역화 문자로 변환
+            var value = [12.34, 56];
+            log(value.toLocaleString("zh-Hans-CN-u-nu-hanidec"));       // 실행 결과    :   한자
+
+
+
+            // 엘리먼트 삭제
+
+            // shift()
+
+            // 첫 번째 엘리먼트 삭제
+            var value = [1, 2, 34];
+            log(value.shift());         // 실행 결과     :  1
+            log(value);                 // 실행 결과     :  [2, 34]
+
+
+
+            // 빈 배열
+            var result = [].shift();
+            log(result);                // 실행 결과    :   undefined
+
+
+
+
+            // pop()
+
+            // 마지막 엘리먼트 삭제
+            var value = [1, 2, 34];
+            log(value.pop());           // 실행 결과    :   34
+            log(value);                 // 실행 결과    :  [1, 2]
+
+
+
+
+            // 빈 배열
+            var result = [].pop();
+            log(result);                // 실행 결과    :   undefined
+
+
+
+
+            // splice()
+
+            // 파라미터 모두 작성
+            var value = [1, 2, 3, 4, 5];
+            log(value.splice(1, 3));        // 실행 결과    :   [2, 3, 4]           . 1번 인덱스부터 엘리먼트 3개를 삭제
+            log(value);                     // 실행 결과    :   [1, 5]              . 뒤의 엘리먼트가 앞으로 당겨진다.
+
+
+
+            // 세 번째 파라미터 작성
+            var value = [1, 2, 3, 4, 5];
+            log(value.splice(1, 3, "A", "B"));      // 실행 결과   :    [2, 3, 4]
+            log(value);                             // 실행 결과   :    [1, A, B, 5]
+
+
+            // 파라미터를 작성하지 않으면
+            var value = [1, 2, 3, 4, 5];
+            log(value.splice());                    // 실행 결과    :   []                  .     삭제 하지 않는다
+            log(value);                             // 실행 결과    :   [1, 2, 3, 4, 5]     .     삭제한 것이 없으므로 빈 배열  반환
+
+
+
+
+
+
+            // sort(분류)
+
+            // 가나다 순서
+            var value = [4, 3, 2, 1];
+            log(value.sort());              // 실행 결과   :    [1, 2, 3, 4]
+
+
+            // Unicode 순서
+            var value = ["A1", "A01", "B2", "B02"];
+            log(value.sort());              // 실행 결과    :   [A01, A1, B02, B2]          .  왼쪽에서 오른쪽으로 문자 하나씩 비교하여 정렬, A01과 A1에서 A가 같으므로 다음 문자 비교
+                                                                                // 0이 1보다 코트 포인트가 앞에 있으므로 앞에 정렬    
+
+
+
+            // sort 대상도 sort 됨
+            var value = [4, 3, 2, 1];
+            log(value.sort());          // 실행 결과     :  [1, 2, 3, 4]
+            log(value);                 // 실행 결과     :  [1, 2, 3, 4]                                                                              
+
+
+
+            // undefined는 뒤로 이동
+            var value = [, , 1, 2];
+            log(value.sort());              // 실행 결과    :   [1, 2, undefined, undefined]
+
+
+
+            // sort()와 Unicode
+            
+            // 숫자를 Unicode로 반환
+            var value = [101, 26, 7, 1234];             // 사람이 생각하는 일반적인 정렬은 [7, 26, 101, 1234]이다. 실행 결과처럼 정렬된 것은 코드 포인트로 비교하여 sort 하기 때문
+            log(value.sort());              // 실행 결과    :   [101, 1234, 26, 7]      
+                                                        // 101과 26에서 1이 2보다 작으므로 101이 26보다 작은 것으로 정렬
+                                            // 또한 101과 7에서 1이 7보다 작으므로 101이 7보다 작은 것으로 정렬
+                                            // 이를 해결하려면 sort()의 파라미터에 함수를 작성하고 함수에서 정렬해야 한다.
+                                            
+
+
+
+            // sort 알고리즘
+
+            // sort()
+            var value = [101, 26, 7, 1234]; 
+            value.sort(function(one, two) {
+                return one - two;
+            });                                                     
+            log(value);                 // 실행 결과    :   [7, 26, 101, 1234]
+
+            // sort() 파라미터의 function(){}을 호출하면서 101과 26을 파라미터 값으로 넘긴다. 101이 one에, 26이 two에 설정된다.
+            // one(101) - two(26)의 결과는 양수이며 이 값을 반환한다. 이때, 0보다 큰 값이 반환되면 배열에서 값의 위치를 바꾼다. 즉 , [26, 101, 7, 1234]가 된다.
+            // 다시 콜백 함수를 호출하면서 101과 7을 넘겨준다. one(101) - two(7)의 결과는 양수이며 0보다 큰 값을 반환하게 된다.
+            // 반환 값이 0보다 크므로 배열에서 값의 위치를 바꾼다. 즉, [26, 7, 101, 1234]가 된다.
+            // 다시 함수를 호출하면서 101과 1234를 넘겨준다. one(101) - two(1234)의 결과는 음수이며 0보다 작은 값을 반환하게 된다.
+            // 반환 값 이 0보다 작거나 같으면 배열에서 값의 위치를 바꾸지 않는다. 따라서, [26, 7, 101, 1234]가 된다.
+            // 다시 처음으로 돌아가 바뀌는 것이 없을 때까지 배열의 엘리먼트 위치를 조정한다.
+
+
+            var value = [101, 26, 7, 1234];
+            value.sort(function(one, two) {
+                return two - one;
+            });
+            log(value);
+
+
+            
+            // reverse()
+            
+            // 인덱스 기준으로 역순
+            var value = [1, 3, 7, 5];
+            log(value.reverse());           // 실행 결과    :   [5, 7, 3, 1]
+
+
+
+
+
+
+
+            // Array 오브젝트 (ES5)
+
+            // isArray()
+
+            // 배열 여부 체크
+            log(Array.isArray([1, 2]));     // 실행 결과    :   true
+            log(Array.isArray(123));        // 실행 결과    :   false         
+
+
+
+            // typeof 체크
+            log(typeof {a: 1});     // 실행 결과    : object        .  typeof 연산자로 데이터 타입을 구하면, 모두 object 이므로 배열 여부 체크 불가
+            log(typeof [1, 2]);     // 실행 결과    : object        .   [1, 2]는 Array.isArray() 사용
+            log(typeof null);       // 실행 결과    : object        .   null은 Object.is() 사용    
+
+
+
+
+
+            // indexOf()
+
+            // 왼쪽에서 오른쪽으로 검색
+            var value = [1, 2, 5, 2, 5];        // 배열의 왼쪽부터 5를 검색
+            log(value.indexOf(5));              // 실행 결과    :   2       .       2번 인덱스에 5가 있으므로 2를 반환
+
+
+
+
+
+            // 데이터 타입까지 체크
+            var value = [1, 2, 3, 4, 5];        // 배열의 왼쪽부터 "5"를 검색
+            log(value.indexOf("5"));            // 실행 결과    :   -1      .   2번과 4번 인덱스에 5가 있지만 타입이 다름,      같은 값이 없으면 -1을 반환한다.
+
+
+
+            // 두 번째 파라미터 작성
+            var value = [1, 2, 5, 2, 5];        // 3번 인덱스부터 5를 검색
+            log(value.indexOf(5, 3));           // 실행 결과    :   4       .      2번 인덱스에 5가 있지만 3번 인덱스부터 검색하므로 4가 반환된다.
+
+
+
+
+            // indexOf() 차이
+            log("ABCBC".indexOf("C", -2));          // 두 번째 파라미터에 음수를 작성했을 때 검색 방법이 다르다. String 오브젝트는 0으로 간주하여 처음부터 검색. ABCBC에서 C가 2번 인덱스에 있으므로 2를 반환
+            var list = ["A", "B", "C", "B", "C"];   // 실행 결과    :   2       .   Array 오브젝트는 음수에 length를 더해 시작 인덱스로 사용. -2 + length(5) = 3    2번 인덱스에 C가 있지만 4번 인덱스를 반환
+            log(list.indexOf("C", -2));             // 실행 결과    :   4
+
+
+
+
+
+
+            // lastIndexOf()
+
+            // 마지막 인덱스 반환
+            var value = [1, 2, 5, 2, 5];    
+            log(value.lastIndexOf(5));          // 실행 결과    :   4
+
+
+
+
+
+
+            // 콜백 함수를 가진 Array 메서드
+
+            // forEach()
+
+            // 반복 처리 방법
+            var list = ["A", "B", "C"];             // 배열의 첫 번째 엘리먼트인 "A"를 읽는다. 콜백 함수를 호출하면서 파라미터에 엘리먼트 값, 인덱스, 배열 전체 순서로 설정
+            list.forEach(function(el, index, all){  // 콜백 함수의 함수 코드를 실행 console.log() 실행 ,    다음 엘리먼트를 읽는다.
+                log(el + ":" + index + ":" + all);  // 2번에서 4번을 배열 끝까지 반복한다.
+            });         // 실행 결과    :   A : 0 :A, B, C    ,      B : 1 : A, B, C    ,   C : 2 : A, B, C 
+
+
+
+            // 콜백 함수 분리
+            var list = ["A", "B", "C"];
+            var fn = function(el, index, all) {
+                log(el + ":" + index + ":" + all);      // 위 코드와 같다
+            };                                          // 단지, 콜백 함수를 분리한 것 뿐이다.
+
+            list.forEach(fn);                        // 실행 결과    :   A : 0 :A, B, C    ,      B : 1 : A, B, C    ,   C : 2 : A, B, C 
+
+
+
+            // this로 오브젝트 참조
+            var list = [1, 2];
+            var fn = function(el, index, all) {         // this로 오브젝트를 참조한다.
+                log(el + this.ten);                     // 실행 결과    :   11      .this.ten의 값은 10이다.
+            };                                          // 함수 안에서 값(데이터)을 사용하는 방법
+                                                        // 콜백 함수의 완전한 독립성 보장
+            list.forEach(fn, {ten: 10});                // 실행 결과    :   12
+
+
+
+            // forEach()
+
+            // 반복 도중에 엘리먼트 추가
+            var list = [1, 2, 3];
+            var fn = function(el, index, all) {
+                if (index === 0) {                  // 배열을 처음 읽었을 때 즉 , index가 0일 때 배열 끝에 "AB"를 첨부한다.
+                    list.push("AB");
+                };
+                log(el);                            // 이렇게 반복하는 도중에 배열에 엘리먼트를 추가하면 처리하지 않는다.
+            };      
+            list.forEach(fn);                       // 실행 결과 : 1    ,   2,      3
+
+
+
+            // 큰 인덱스의 값 변경
+            var list = [1, 2, 3];
+            var fn = function(el, index, all) {
+                if (index === 0) {
+                    list[2] = 345;                  // index가 0일 때 2번 인덱스의 값을 345로 변경
+                };
+                log(el);                            // 변경된 값을 사용한다.
+            };
+            list.forEach(fn);                       // 실행 시간 :  1,  2,  345
+
+
+
+            // 큰 인덱스의 엘리먼트 삭제
+            var list = [1, 2, 3];
+            var fn = function(el, index, all) {
+                if (index === 0) {
+                    delete list[2];
+                };
+                log(el);
+            };
+            list.forEach(fn);                   // 실행 결과    :   1,  2
+
+
+
+            
+
+            // every()
+
+            // true, false 반환
+            var value = [20, 10, 30, 40];               // 처음에 20을 읽으면 15보다 크므로 true 반환. true이므로 다음 엘리먼트를 읽는다.
+            var fn = function(el, index, all) {         // 다음의 10은 15보다 작으므로 false 반환 . false 이므로 반복을 종료한다.
+                log(el);                                // 따라서 [30, 40]은 처리하지 않는다.
+                return el > 15;                         // result 변수에 false 가 할당된다.
+            };                                          // 배열의 마지막까지 처리했는데 false가 반환되지 않으면 true가 반환되며 result 변수에 설정된다.
+            var result = value.every(fn);
+            log("결과", result);                        // 실행 결과 : 20   ,   10  ,   false
+
+
+
+            // some()
+            var value = [10, 20, 30, 40];
+            var fn = function(el, index, all) {         // 처음에 10을 읽으면 15보다 작으므로 false 반환 . false 이므로 다음 엘리먼트를 읽는다.
+                log(el);                                // 다음의 20은 15보다 크므로 true 반환 . true이므로 반복을 종료한다.
+                return el > 15;                         // 따라서 [30, 40]은 처리하지 않는다.
+            };
+            var result = value.some(fn);                // result 변수에 true가 할당된다.
+            log("결과:" , result);                      // 실행 결과    :   10,     20,     결과: true
+
+
+
+
+            // 필터 , 매핑
+
+            // filter()
+
+            // true일 때 엘리먼트 반환
+            var value = [10, 20, 30, 40];               // [20, 30, 40]이 15보다 크므로 return el > 15에서 비교 결과가 true이다.
+            var fn = function(el, index, all) {         // true일 때 현재의 엘리먼트를 반환한다.
+                return el > 15;                         // 다수를 반환할 수 있으므로 반환되는 엘리먼트를 배열에 첨부한다.
+            };                                          // 콜백 함수에서 false만 반환하면 즉 , true가 하나도 없으면 빈 배열이 result 변수에 할당된다.
+            var result = value.filter(fn);  
+            log(result);                                // 실행 결과    :   [20, 30, 40]
+
+
+
+
+            // map()
+
+            // 반환한 값을 배열에 첨부
+            var value = [10, 20, 30];
+            var fn = function(el, index, all) {
+                return el + this.add;
+            };
+
+            var point = {add: 100};
+            var result = value.map(fn, point);
+            log(result);                            // 실행 결과  :    [110, 120, 130]
+
+
+
+
+
+            // 반환 값을 파라미터 값으로 사용
+
+            // reduce()
+
+            // 첫 번째 파라미터 작성
+            var value = [1, 3, 5, 7];
+            var fn = function(prev, curr, index, all) {
+                log(prev + "," + crr);
+                return prev + curr;                         // 4번이 아니라 3번 반복한 것은 처음 시작할 때 인덱스가 1이기 때문이다.
+            };
+            var result = value.reduce(fn);
+            log("결과:", result);                       // 실행 결과    :   1, 3    
+                                                        // 실행 결과    :   4, 5
+                                                        // 실행 결과    :   9, 7
+                                                        // 실행 결과    :   결과: 16
+
+
+            
+
+
+            // 두 번째 파라미터 작성
+            var value = [1, 3, 5];
+            var fn = function(prev, curr, index, all) {
+                log(prev + "," + curr);                     // 두 번째 파라미터에 초깃값으로 7을 작성
+                return prev + curr;                         // 처음 콜백 함수를 호출할 때 두 번째 파라미터 값 7을 prev에 설정.  prev:7 , curr:1  , index:0 , 반환값: 8
+            };
+            var result = value.reduce(fn, 7);               // 두 번째 콜백 함수를 호출할 때 prev:8 , curr:3 , index:1, 반환값:11
+            log("반환:", result);                   // 실행 결과 : 7, 1
+                                                    // 실행 결과 : 8, 3
+                                                    // 실행 결과 : 11, 5
+                                                    // 실행 결과 : 반환:16
+
+
+
+            // reduceRight()
+
+            // 배열 끝에서 앞으로 처리
+            var value = [1, 3, 5, 7];
+            var fn = function(prev, curr, index, all) {
+                log(prev + "," + curr);
+                return prev + curr;                 // 실행 결과 : 7, 5
+            };                                      // 실행 결과 : 12, 3
+            var result = value.reduceRight(fn);     // 실행 결과 : 15, 1
+            log("반환:", result)                    // 실행 결과 :  반환:16    
+
+
+
+
+
+            // Boolean 오브젝트
+
+
+            // new Boolean()
+
+            // false로 변환
+            var value = [undefined, null, NaN, 0, ""];          // value의 모든 값이 false로 변환되며
+            for (var k = 0; k < value.length; k++) {            // 생성한 Boolean 인스턴스의 프리미티브 값으로 설정
+                var obj = new Boolean(value[k]);                // false를 값으로 변환하면 0이 되며 1을 더하면 1이 된다.
+                log(obj + 1);                           // 실행 결과 : 1  ,  1,   1,  1,  1
+            }
+
+
+            // true로 변환
+            var value = [12, "1", "0", "false"];
+            for (var k = 0; k < value.length; k++) {        // value의 모든 값이 true로 변환되며 생성한 Boolean 인스턴스의 프리미트 값으로 설정
+                var obj = new Boolean(value[k]);            // true를 값으로 변환하면 1이 되며 1을 더하면 2가 된다.
+                log(obj + 1);                               // 실행 결과    :   2,  2,  2,  2
+            };
+
+
+
+
+            // Boolean()
+
+            // true, false로 변환
+            var value = [12, "1", "0", "false"];
+            for (var k = 0; k < value.length; k++) {        // value의 모든 값이 true로 변환되고 true를 값으로 변환하면 1이 된다.
+                log(Boolean(value[k] + 1));                 // 1을 더하면 2가 된다.
+            };                              // 실행 결과    :   2,  2,  2,  2
+
+
+
+
+            // toString()
+
+            // 문자열로 변환
+            var result = true.toString();
+            log(result);                        // 실행 결과 : true
+            log(typeof result);                 // 실행 결과 : string
+
+
+
+            // valueOf()
+
+            // 프리미티브 값 반환
+            var obj = new Boolean(3);
+            log(obj.valueOf());                 // 실행 결과    :    true
+
+
+
+
+
+
+
+
+            // 자바스크립트 특징
+
+            // book.js 파일
+            var value = 123;
+            var book = function() {
+                var point = 456;
+                var getPoint = function() {
+                    return point;
+                };
+                getPoint();
+            };
+            book();
+
+
+
+
+            // prototype에 함수 연결
+            var Book = function(){};
+
+            Book.prototype.getBook = function() {           // Book 함수 작성
+                return "JS북";                              // Book.prototype에 getBook 메서드 연결
+            };                                              // prototype이 오브젝트이므로 {이름 : 메서드} 형태로 연결할 수 있다.
+
+
+
+
+            // ES6의 class
+
+            class Book {
+                constructor(title) {
+                    this.title = title;
+                }
+                getBook() {
+                    return this.title;
+                }
+            }
+
+
+
+
+            // 자바스크립트 인스턴스
+
+
+
+            // 인스턴스 생성
+            var Book = function(point) {
+                this.point = point;                         // new Book(200)으로 인스턴스 생성. oneInstance가 인스턴스 이름
+            };                                              // 파라미터 값을 생성하는 인스턴스에 설정
+            Book.prototype.getPoint = function() {          // 따라서 인스턴스마다 고유의 값을 가질 수 있음
+                return this.point + 100;                    // oneInstance.getPoint() 형태로 prototype에 연결된 getPoint() 메서드 호출
+            };
+            var oneInstance = new Book(200);
+
+            log(oneInstance.getPoint);                  // 실행 결과    :   300
+
+
+
+
+            // instanceof
+
+            // 생성한 인스턴스 여부
+            var Book = function(point) {
+                this.point = point;
+            };
+            Book.prototype.getPoint = function() {          // new Book()으로 인스턴스 생성
+                return this.point + 100;                    // oneInstance instanceof Book
+            };                                              // oneInstance가 Book()으로 생성한 인스턴스이므로 true 반환
+            var oneInstance = new Book(200);
+
+            log(oneInstance instanceof Book);               // 실행 결과    :   true
+
+
+
+
+
+            // 메서드 형태
+
+            // OOP의 일반적인 방법
+            var data = ["book", "책", 123];             // new Array()로 인스턴스 생성
+            var obj = new Array();                      // obj.concat(data);    obj 인스턴스의 concat() 호출 데이터를 파라미터로 넘겨 줌
+            var result = obj.concat(data);              // JS는 일반적으로 이 방법을 사용하지 않고 아래의 방법을 사용
+            log(result);                                // 실행 결과 : [book, 책, 123]
+
+
+
+
+            // 데이터로 메서드 호출
+            var data = ["book", "책", 123];             // data.concat();
+            var result = data.concat();                 // 엔진이 data 타입에 따라 오브젝트 결정    , data가 배열이므로 Array의 concat() 호출 data를 파라미터로 넘겨줌
+            log(result);                            // 실행 결과    :   [book, 책, 123]    
+
+
+
+
+            // 오브젝트의 함수 호출
+            var data = ["book", "책", 123];
+            var bookObj = {
+                concat : function(data) {
+                    return data.concat();
+                }
+            };
+            log(bookObj.concat(data));              // 실행 결과    :   [book, 책, 123]
+
+
+
+            // 인스턴스의 메서드 호출
+            var data = ["book", "책", 123];
+            var Book = function(data) {
+                this.data = data;
+            };
+            Book.prototype.concat = function() {
+                return this.data.concat();
+            };
+            var oneInstance = new Book(data);
+            log(oneInstance.concat());              // 실행 결과    :   [book, 책, 123]
+
+
+
+
+
+            // ES5 Object 특징
+
+
+
+
+            // Object에 프로퍼티 추가
+
+            // defineProperty()
+
+
+            // 프로퍼티 추가
+            var obj = {};                                   // 첫 번째 파라미터에 프로퍼티를 추가할 오브젝트(obj) 작성
+            Object.defineProperty(obj, "book", {            // 두 번째 파라미터에 프로퍼티 이름(book) 작성
+                value: "JS북",                              // 세 번째 파마미터 {value: "책"}에서 value는 프로퍼티 값을 나타내느 속성, "JS책"은 value의 속성 값으로 [실행 결과]처럼 프로퍼티 값이 된다.        
+                enumerable: true
+            });
+            log(obj);                       // 실행 결과    :   {book: JS북}
+
+
+
+            // defineProperties()
+
+            // 다수의 프로퍼티 추가
+            var obj = {};
+            Object.defineProperties(obj, {
+                soccer : {
+                    value : "축구", enumerable : true
+                },
+                basketball: {                                   // 실행 결과 : soccer : 축구
+                    value: "농구", enumerable : true
+                }
+            });
+            for (var name in obj){
+                log(name + ":" + obj[name]);                    // 실행 결과  : basketball : 농구
+            };
+
+
+
+
+
+
+            // 프로퍼티 디스크립터
+
+
+            // value 속성
+            var obj = {};
+            Object.defineProperty(obj, "book", {
+                value : "JS북",
+                enumerable : true
+            });
+            for (var name in obj) {
+                log(name);                      // 실행 결과    :   book
+                log(obj[name]);                 // 실행 결과    :   JS북
+            }
+
+
+
+            // value, get/set 작성 불가
+            var obj = {};
+            Object.defineProperty(obj, "book", {
+                value: "JS북",
+                // get: function(){}
+            });
+
+
+
+
+            // writable 속성
+
+            var obj = {};
+            Object.defineProperty(obj, "book", {
+                value : "JS책",
+                // 변경 가능
+                writable: true
+            });
+            obj.book = "변경 가능";
+            log(obj.book);                  // 실행 결과    :   변경 가능
+
+
+
+
+            var obj = {};
+            Object.defineProperty(obj, "book", {
+                value : "JS책",
+                // 변경 불가
+                writable: false
+            });
+            obj.book = "변경 불가";
+            log(obj.book);                  // 실행 결과    :   변경 불가
+
+
+
+
+
+            // enumerable 속성
+
+            // for~in으로 열거 가능
+            var obj = {};
+            Object.defineProperty(obj, "book", {
+                value: "JS북",
+                // 열거 가능
+                enumerable : true
+            });
+            for (var name in obj) {
+                log(name, ":" + obj[name]);             // 실행 결과    :   book:JS북
+            };
+
+
+
+
+            // enumerable: false, 열거불가
+            var obj = {};
+            Object.defineProperty(obj, "book", {
+                value: "JS북",
+                // 열거 불가
+                enumerable : false
+            });
+            for (var name in obj) {
+                log(name, ":" + obj[name]);            
+            };
+
+
+
+
+            // configurable 속성
+
+            // configurable: true, 삭제 가능
+            var obj = {};
+            Object.defineProperty(obj, "book", {
+                value: "JS북",
+                // 삭제 가능
+                configurable : true
+            });
+            delete obj.book;
+            log(obj.book);              // undefined
+
+
+
+            // configurable: false, 삭제 가능
+            var obj = {};
+            Object.defineProperty(obj, "book", {
+                value: "JS북",
+                // 삭제 불가
+                configurable : false
+            });
+            delete obj.book;
+            log(obj.book);              // 실행 결과 : JS북
+
+
+
+
+            // getter, setter
+
+            // getter 정의
+            var obj = {};
+            Object.defineProperty(obj, "book", {
+                get : function() {
+                    return "JS책";
+                }
+            });
+            var result = obj.book;
+            log(result);                    // 실행 결과    :   JS책
+
+
+
+            // setter 정의
+            var obj = {}, data = {};
+            Object.defineProperty(obj, "book",{
+                set : function(param) {
+                    data.title = param;
+                },
+                get: function() {
+                    return data.title;
+                }
+            });
+            obj.book = "JS책";
+            log(obj.book);              // 실행 결과    :   JS책
+
+
+
+
+            // 프로퍼티 추출
+
+            //getPrototypeOf()
+
+            // prototype에 연결된 프로퍼티
+            function Book(point) {
+                this.point = point;
+            };
+            Book.prototype.getPoint = function(){};         // 파라미터에 인스턴스를 작성한다
+            Book.prototype.setPoint = function(){};         // 인스턴스를 생성한 function 오브젝트의 prototype에 연결된 프로퍼티를 반환
+            var obj = new Book(100);                        // 생성자 함수인 Book을 작성하거나 Book.prototype을 작성하면 반환하지 않는다.
+
+            var result = Object.getPrototypeOf(obj);        // this.point는 prototype에 연결되어 있지 않으므로 반환되지 않는다.
+            for (var key in result) {
+                log(key + ":" + result[key]);
+            };                                          // 실행 결과    :   getPoint:function(){}       ,   setPoint:function(){}
+
+
+
+
+            // getOwnPropertyNames()
+
+            // 프로퍼티 이름 반환
+            var obj = {};
+            Object.defineProperties(obj, {
+                book: {value: "책"},
+                point: {value: 123}
+            });
+            var name = Object.getOwnPropertyNames(obj);
+            for (var k = 0; k < names.length; k++) {
+                log(names[k]);                              // 실행 결과    :   book
+            };                                              // 실행 결과    :   point
+
+
+
+
+
+            // keys()
+
+            // 열거 가능 프로퍼티 이름
+            var obj = {};
+            Object.defineProperties(obj, {
+                book: {
+                    value: "책", enumerable : true
+                },
+                point : {value: 123}                                    // point는 enumerable:false 이므로 반환하지 않음
+            });
+            var names = Object.keys(obj);
+            for (var k = 0; k < names.length; k++) {
+                log(names[k]);
+            };                                                          // 실행 결과    :   book                                                       
+
+
+
+
+            // 프로퍼티 디스크립터 함수
+
+            // getOwnPropertyDescriptor()
+
+            // 디스크립터 속성 반환
+            var obj = {};                                           // 실행 결과 :
+            Object.defineProperty(obj, "book", {                    // value : 책
+                value : "책",                                       // writable : true
+                writable : true, enumerable : true                  // enumerable true
+            });                                                     // configurable : false
+            var desc =
+            Object.getOwnPropertyDescriptor(obj, "book");
+            for (var key in desc) {
+                log(key + ":" + desc[key]);
+            };
+
+
+
+
+            // preventExtensions()
+
+            // 프로퍼티 추가 금지 설정
+            var obj = {};
+            Object.preventExtensions(obj);
+            try {
+                Object.defineProperty(obj, "book", {
+                    value : "책"
+                });
+            } catch (e) {                                       // 추가 금지 상태에서 프로퍼티를 추가하면 에러 발생
+                log("추가 불가");                               // 실행 결과    :    추가 불가
+            };
+
+
+
+            // isExtensible()
+
+            // 프로퍼티 추가 금지 여부
+            var obj = {};
+            Object.defineProperty(obj, "book", {
+                value : "책",
+            });
+            log(Object.isExtensible(obj));              // 실행 결과    : true
+
+            Object.preventExtensions(obj);
+            log(Object.isExtensible(obj));              // 실행 결과    : false
+
+
+
+            // seal()
+
+            // 프로퍼티 추가, 삭제 금지 설정
+            var obj = {};
+            Object.defineProperty(obj, "book", {
+                value: "책", writable : true
+            });
+
+            Object.seal(obj);
+            try {
+                Object.defineProperty(obj, "sports", {
+                    value : "스포츠"
+                });
+            } catch(e) {
+                log("추가 불가")                // 실행 결과    : 추가 불가
+            };
+
+
+
+
+            // isSealed()
+
+            // 추가, 삭제 금지 여부
+            var obj = {};
+            Object.defineProperty(obj, "book", {
+                value : "책", writable : true
+            });
+            log(Object.isSealed(obj));              // 실행 결과    :   false
+
+            Object.seal(obj);
+            log(Object.isSealed(obj));              // 실행 결과    :   true
+
+
+
+
+            // freeze()
+
+            // 추가, 삭제, 변경 금지 설정
+            var obj = {};
+            Object.defineProperty(obj, "book", {
+                value : "JS책", writable : true
+            });
+
+            Object.freeze(obj);
+            try {
+                Object.defineProperty(obj, "book", {
+                    value : "포인트"
+                });
+            } catch(e) {
+                log("변경 불가")                // 실행 결과    :   변경 불가
+            };
+            log(obj.book);                      // 실행 결과    :   JS책
+
+
+
+
+
+            // isFrozen()
+
+
+            // 추가, 삭제, 변경 금지 여부
+            var obj = {};
+            Object.defineProperty(obj, "book", {
+                value : "책",
+                writable : true
+            });
+            log(Object.isFrozen(obj));      // 실행 결과    :   false
+            
+            Object.freeze(obj);
+            log(Object.isFrozen(obj));      // 실행 결과    :   true    
+
+
+
+
+            // JSON
+
+            // stringify()
+
+
+            // 큰따옴표("") 안에 작성됨
+            var value = {                                   // 변환이란 큰따옴표 안에 작성되도록 만드는 것을 뜻한다.
+                book : '책',                                // 프로퍼티 이름인 book이 "book"으로 변환
+                title : 123                                 // '책'이 "책"으로 변환
+            };                                              // 숫자는 변하지 않는다.
+            var result = JSON.stringify(value);
+            log(result);                                // 실행 결과 : {"book":"책","title":123}
+        
+
+
+
+            // 배열 변환
+            var value = ['book', '책', 123];
+            var result = JSON.stringify(value);
+            log(result);                                // 실행 결과    :   ['book', "책", 123]
+
+
+
+            // 특수한 값 변환
+            log(JSON.stringify([Infinity, NaN, null]));         // 실행 결과    :   [null, null, null]
+            log(JSON.stringify([true, false]));                // 실행 결과     :   [true, false]     
+
+
+
+            // undefined 변환
+            log(JSON.stringify(undefined));                     // 실행 결과    :   undefined           .           undefined는 작성한 곳에 따라 다르게 변환된다.
+            log(JSON.stringify([undefined]));                   // 실행 결과    :   [null]              .            값 하나임녀 그대로 변환, 배열 안에 있으면 null로 변환
+            log(JSON.stringify({value: undefined}));            // 실행 결과    :   {}                  .           프로퍼티 값이면 프로퍼티를 제외시킴. 프로퍼티 이름도 없어지므로 주의해야 한다.
+
+
+
+            // 두 번째 파라미터에 함수 작성
+            var data = {book: '책', point: 55};
+            function replace(key, value) {
+                // point 값 55를 11로 변경
+                return key === "point"? 11 : value;                 // 함수에서 return한 값을 변환 값으로 사용한다.
+            };
+            var result = JSON.stringify(data, replace);     // 값을 return 하지 않거나 undefined를 return하면 최종 데이터에서 제외시킨다. 즈, 데이터를 걸러 낸다
+            log(result);        // 실행 결과    :   {"book":"책", "point":11 }
+
+
+
+
+            // 두 번째 파라미터에 배열 작성
+            var data = {book:'책', point: 11, amount: 90};          // 배열에 프로퍼티 이름을 작성한다.
+            var result = JSON.stringify(data,                       // 이름이 같은 것만 result에 저장된다.
+            ['book' , 'amount']);                                   // 그래서 {point: 11}이 출력되지 않았다.
+            log(result);                                            // 실행 결과    :   {"book":"책", "amount":90}
+
+
+
+            // 세 번째 파라미터에 줄 분리 작성
+            var data = {sports:'soccer', time: 90};
+            var result = JSON.stringify(data, "", '\n');            
+            log(result);
+                                                                // 실행 결과 : {"sports":"soccer", "time":90}           -> 줄바꿈됨
+
+
+            // 들여쓰기 숫자 작성
+            var data = {sports:'soccer', time:90};
+            var result = JSON.stringify(data, "", 4);
+            log(result);                                        // 실행 결과 : {"sports":"soccer", "time":90}           -> 4칸 들여쓰기 + 줄바꿈됨
+
+
+
+
+            // 문자 앞에 삽입할 문자 작성
+            var data = {sports:'soccer', time:90};
+            var result = JSON.stringify(data, "", "##");        // 실행 결과 : {##"sports":##"soccer", "time":90}           
+
+
+
+
+            // JSON 타입 파싱
+
+            // parse()
+
+            // 값이 숫자일 때
+            var value = "123";
+            try {
+                var result = JSON.parse(value);             // JSON 형태는 기본적으로 큰따옴표 사용
+            } catch(e) {                                    // 즉, String 타입이지만 JSON.parse()에서 JS타입에 맞도록 변환
+                console.log("JSON 파싱 에러");               // "123"은 문자열이지만 값이 숫자이므로 Number 타입의 숫자 변환   
+            };                                              // 파싱 대상이 서버에서 받은 데이터일 때, try-catch 사용은 필수이다.
+            log(result);
+            log(typeof result);                         // 실행 결과    :   123,    number
+
+
+
+
+            // true, false
+            var value = "true";
+            var result = JSON.parse(value);                 // "true"도 숫자처럼 true로 변환
+            log(result);                                     // try-catch 사용은 필수
+            log(typeof result);                         // 실행 결과    : true, boolean
+
+
+            // 배열에 작성
+            var value = '["ABC", "가나", "12"]';
+            var result = JSON.parse(value);                 // 배열에 작성된 String 타입의 숫자는 숫자로 변환하지 않는다.
+            log(result);                                    // 실행 결과    :   ["ABC", "가나", "12"]
+
+
+
+            // Object에 작성
+            var value = '{"point":"123"}';
+            var result = JSON.parse(value);                 // JS는 프로퍼티 이름에 큰따옴표를 사용하지 않으므로 큰따옴표가 표시되지 않음
+            log(result);                                     // 실행 결과    :   {point: "123"}
+
+
+
+
+            // parse()
+
+            // 두 번째 파라미터 작성
+            var data = '{book: "책", "movie": "영화"}';
+            var check = function(key, value) {
+                return key === "book" ? "JS책" : value;         // 프로퍼티 이름이 "book"이면 "책"을 "JS책"으로 바꾼다.
+            };
+            var result = JSON.parse(data, check);
+            log(result);                                    // 실행 결과    :   {book:"JS책", movie:"영화"}
+
+
+
+
+
+
+
+            // Date 오브젝트
+
+            // 시각 표시 기준
+            var obj = new Date(1970, 1, 1, 1, 1, 1, 1);         // 년월일, 시분초, 밀리초  , 두 번째가 월이며 1은 2월
+            log(obj.toLocaleString());                          // 실행 결과    :   1970. 2. 1. 오전 1:01:01    
+
+
+
+
+            // new Date()
+
+            // Date 인스턴스 생성
+            var obj = new Date(2019, 2);                        // 값을 작성하지 않으면 0으로 간주
+            log(obj);                                           // 실행 결과    :   Fri Mar 01 2019 00:00:00 GMT+0900 (한국 표준시)        
+
+
+            // 현재 시간
+            log(new Date());                            // 실행 결과    :   Sun Jul 28 2019 04:40:45 GMT+0900 (한국 표준시)
+
+
+
+
+            // 문자열로 작성
+            log(new Date("2019-02"));               // 문자열 작성의 차이 . new Date(2019, 02)에서 02가 3월로 변환되지만 new Date("2019-02")는 2월로 변환된다. 
+                                                    // 실행 결과    :   Fri Feb 01 2019 09:00:00 GMT+0900 (한국 표준시)
+
+
+
+
+            // 시간 자동 넘김
+            log(new Date(2019, 11, 34));            // 실행 결과    :   Fri Jan 03 2020 00:00:00 GMT+0900 (한국 표준시)
+
+            // 월일시분초 범위를 넘치면 상위 시간값에 반영된다. 단, 문자열로 작성하면 에러가 난다. new Date(2019, 11, 34)에서 34가 31을 넘치므로 3을 남겨두고 11에 1을 더한다
+            // 12는 13월이므로 1을 남겨두고 2019에 1을 더한다.  그래서 2020.01.03이 출력되었습니다.
+
+
+
+            // Date.now()
+            log(Date.now());            // 실행 결과    :   1564256664202       .           값을 작성하지 않으면 0으로 간주
+            log(new Date());            // 실행 결과    :   Sun Jul 28 2019 04:44:24        Date.now()와 new Date()가 같은 시간값이지만 값 표시가 다르다
+                                        // 실행 결과    :   GMT+0900 (한국 표준시)
+
+
+
+
+            // Date.parse()
+
+            // 문자열 값을 밀리초로 변환
+            log(Date.parse("2019-01-23T09:11:23.123"));         // 실행 결과    :   1548202283123
+
+
+
+
+            // 시간 추출
+            var obj = new Date(2019, 2, 15);
+            log(obj.getMonth());        // 실행 결과    :   2
+            log(obj.getDate());         // 실행 결과    :   15
+
+
+
+
+            // 시간 설정
+            var obj = new Date();
+            log(obj.valueOf());             // 실행 결과    : 1564256773401
+            log(obj.setMonth(1));           // 실행 결과    : 1551296773401
+            log(obj.setDate(15));           // 실행 결과    : 1550173573401
+
+
+
+
+
+
+            // Math 오브젝트
+
+            // abs()
+
+            // 절대값 반환
+            log(Math.abs(-123));            // 실행 결과    :   123
+            log(Math.abs(-Infinity));       // 실행 결과    :   Infinity
+
+
+
+            // floor()
+            log(Math.floor(5.3));           // 실행 결과    :   5
+            log(Math.floor(-1.7));          // 실행 결과    :   -2
+            log(Math.floor(-1.0));          // 실행 결과    :   -1
+
+
+
+            // ceil()
+
+            // 소수 이하 올림
+            log(Math.ceil(5.1));            // 실행 결과    :   6
+            log(Math.ceil(-1.7));           // 실행 결과    :   -1
+            log(Math.ceil(-0.3));           // 실행 결과    :   0
+
+
+
+            // round()
+            // 소수 이하 반올림
+            log(Math.round(5.1));            // 실행 결과    :   5
+            log(Math.round(5.5));             // 실행 결과    :   6
+            log(Math.round(-1.6));           // 실행 결과    :   -2
+            log(Math.round(-1.3));           // 실행 결과    :   -1
+
+
+
+            // max()
+            log(Math.max(5, 3, 9));             // 실행 결과 : 9
+            log(Math.max(5, 3, "AB"));          // 실행 결과 : NaN
+
+
+
+            // min()
+            
+            // 최솟값 반환
+            log(Math.min(5, 3, 9));             // 실행 결과 : 3
+            log(Math.min(5, 3, "AB"));          // 실행 결과 : NaN
+
+
+
+
+            // pow()
+
+            // 자승 값 반환                                                     두 번째 파라미터를 작성하지 않으면 NaN
+            log(Math.pow(10, 2));           // 실행 결과 : 100
+            log(Math.pow(10, 0));               // 실행 결과 : 1
+            log(Math.pow("A", 1));              // 실행 결과 : NaN
+            log(Math.pow(1, "A"));              // 실행 결과 : NaN
+            log(Math.pow(1));                   // 실행 결과 : NaN
+
+
+
+
+            // random() 
+            log(Math.random());             // 실행 결과 : 0.12387918274921749              random() 함수를 실행할 때마다 다른 값이 반환된다.
+            log(Math.random());             // 실행 결과 : 0.12479127498942179
+
+
+
+
+    </script>   
+    
+</head>
+<body>
+    <script src="hellow.js" defer></script>
+</body>
+</html>
