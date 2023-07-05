@@ -4,8 +4,28 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="css/poster.css">
+
+    <style>
+        table, td, th {
+          border:1px solid #ccc;
+        }
+        td, th {
+          padding:10px 20px;
+        }
+        td:last-child{
+          width:200px;
+        }
+      </style>
 </head>
 <body>
+    <img src="images/top.jpg" alt="" width="100%">
+    <object data="product.pdf" width="900" height="800"></object>
+    <audio src="medias/spring.mp3"  controls></audio>
+    <video src="medias/salad.mp4" controls width="700"></video>
+    <video src="medias/flower.mp4" width="640" muted autoplay loop></video>
+    <p><a href="order.html" target="_blank">주문서 작성하기</a></p>
+    <a href="order.html" ><img src="images/tangerines.jpg" alt="레드향"></a>
+    <p><a href="http://blog.daum.net/jepaf/2" target="_blank">자세한 정보 보기</a></p>
     <div id="contatiner">
     <h1>탐라국 입춘굿</h1>
     <p>탐라국 입춘굿은 입춘을 맞아 풍년을 기원하는 행사로, 제주도의 문화 축제 중에서 유일하게 탐라 시대부터 이어져 왔다.</p>
@@ -83,6 +103,56 @@
             </tr>
         </tbody>
     </table>
+    
+    <form action="">
+        <fieldset>
+            <legend> 상품 선택</legend>
+        </fieldset>
+        <fieldset>
+            배송 정보
+        </fieldset>
+    </form>
+    <label for="user-id">아이디(6자 이상)</label>
+    <input type="text" id="user-id">
+
+    <form>
+        <fieldset>
+            <label>아이디 : <input type="text" id="user-id" size="10"></label>
+            <label>비밀번호 : <input type="password" id="user-pw" size="10"></label>
+            <input type="submit" value="로그인">
+        </fieldset>
+    </form>
+
+    <ul>
+        <li>
+            <label for="user-name">이름</label>
+            <input type="text" id="user-name">
+        </li>
+        <li>
+            <label for="addr">배송 주소</label>
+            <input type="text" id="addr">
+        </li>
+        <li>
+            <label for="mail">이메일 주소</label>
+            <input type="email" id="mail">
+        </li>
+        <li>
+            <label for="phone">연락처</label>
+            <input type="tel" id="phone">
+        </li>
+    </ul>
+    
+    <fieldset>
+        <legend>상품 선택</legend>
+        <p><b>주문할 상품을 선택해 주세요.</b></p>
+        <label> <input type="checkbox" value="s_3">선물용 3kg</label>
+        <label><input type="checkbox" value="s_5">선물용 5kg</label>
+        <label><input type="checkbox" value="f_3">가정용 3kg</label>
+        <label><input type="checkbox" value="f_5">가정용 5kg</label>
+        <p><b>포장선택</b></p>
+        <label><input type="radio" name="gift" value="yes">선물 포장</label>
+        <label><input type="radio" name="gift" value="no">선물 포장 안 함</label>
+    </fieldset>
     </div>
 </body>
 </html>
