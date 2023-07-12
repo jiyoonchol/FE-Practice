@@ -154,5 +154,70 @@
         <label><input type="radio" name="gift" value="no">선물 포장 안 함</label>
     </fieldset>
     </div>
+    <ul>
+        <li>
+            <label for="uid">아이디</label>
+            <input type="text" id="uid" autofocus placeholder="4자~10자 사이, 공백없이" required>
+        </li>
+        <li>
+            <label for="umail">이메일</label>
+            <input type="email" id="umail" required>
+        </li>
+        <li>
+            <label for="pwd1">비밀번호</label>
+            <input type="password" id="pwd1" placeholder="문자와 숫자, 특수 기호 포함" required>
+        </li>
+        <li>
+            <label for="pwd2">비밀번호 확인</label>
+            <input type="password" id="pwd2" required>
+        </li>
+    </ul>
+    <fieldset>
+        <legend>이벤트와 새로운 소식</legend>
+        <input type="radio" name="mailing" id="mailing_y" value="mailing_yes">
+        <label for="mailing_y">메일 수신</label>
+        <input type="radio" name="mailing" id="mailing_n" value="mailing_no" checked>
+        <label for="mailing_n">메일 수신 안 함</label>
+    </fieldset>
+    <label for="memo">메모</label>
+    <textarea id="memo" cols="40" rows="4"></textarea>
+    <select>
+        <option value="값1">내용1</option>
+        <option value="값2">내용2</option>
+    </select>
+    <label for="prod1">상품 선택</label>
+    <select id="prod1">
+        <option value="special_3" selected>선물용 3kg</option>
+        <option value="special_5">선물용 5kg</option>
+        <option value="family_3">가정용 3kg</option>
+        <option value="family_5">가정용 5kg</option>
+    </select>
+    <input type="text" list="데이터 목록 id">
+    <datalist id="데이터 목록 id">
+        <option value="서버로 넘길 값1">선택 옵션1</option>
+        <option value="서버로 넘길 값2">선택 옵션2</option>
+    </datalist>
+    <label for="prod2">포장 여부</label>
+    <input type="text" id="prod2" list="pack">
+    <datalist id="pack">
+        <option value="package">선물 포장</option>
+        <option value="no_package">포장 안 함</option>
+    </datalist>
+    <button type="submit">내용</button>
+    <button type="reset">내용</button>
+    <button type="button">내용</button>
+    <li>
+        <label for="path">가입 경로</label>
+        <select id="path">
+            <option value="blog">블로그</option>
+            <option value="search">검색</option>
+            <option value="sns">SNS</option>
+            <option value="etc">기타</option>
+        </select>
+        <li>
+            <label for="memo">메모</label>
+            <textarea cols="40" rows="4" placeholder="남길 말씀이 있다면 여기에"></textarea>
+        </li>
+    </li>
 </body>
 </html>
